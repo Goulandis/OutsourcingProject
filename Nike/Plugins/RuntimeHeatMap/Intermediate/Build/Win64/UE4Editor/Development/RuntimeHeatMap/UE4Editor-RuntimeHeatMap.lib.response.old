@@ -1,0 +1,14 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-RuntimeHeatMap.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\harix-ue4-engine-423\UnrealEngine-4.23.0-release\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h.obj"
+"D:\Projects\mmo_clean\RobotEngine\Plugins\RuntimeHeatMap\Intermediate\Build\Win64\UE4Editor\Development\RuntimeHeatMap\Module.RuntimeHeatMap.cpp.obj"
+"D:\Projects\mmo_clean\RobotEngine\Plugins\RuntimeHeatMap\Intermediate\Build\Win64\UE4Editor\Development\RuntimeHeatMap\Module.RuntimeHeatMap.gen.cpp.obj"
+"D:\harix-ue4-engine-423\UnrealEngine-4.23.0-release\Engine\Intermediate\Build\Win64\UE4Editor\Development\Default.rc2.res"
+/OUT:"D:\Projects\mmo_clean\RobotEngine\Plugins\RuntimeHeatMap\Intermediate\Build\Win64\UE4Editor\Development\RuntimeHeatMap\UE4Editor-RuntimeHeatMap.lib"
+/INCLUDE:IMPLEMENT_MODULE_RuntimeHeatMap

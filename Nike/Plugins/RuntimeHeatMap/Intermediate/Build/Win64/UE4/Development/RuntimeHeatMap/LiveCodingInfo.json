@@ -1,0 +1,13 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.RuntimeHeatMap.cpp.obj": [
+			"RuntimeHeatMapActor.cpp.obj",
+			"RuntimeHeatMap.cpp.obj"
+		],
+		"Module.RuntimeHeatMap.gen.cpp.obj": [
+			"RuntimeHeatMap.init.gen.cpp.obj",
+			"RuntimeHeatMapActor.gen.cpp.obj"
+		]
+	}
+}

@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-RuntimeHeatMap.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\Goulandis\Nike\Nike\Intermediate\Build\Win64\NikeEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"D:\Goulandis\Nike\Nike\Plugins\RuntimeHeatMap\Intermediate\Build\Win64\UE4Editor\Development\RuntimeHeatMap\Module.RuntimeHeatMap.cpp.obj"
+"D:\Goulandis\Nike\Nike\Plugins\RuntimeHeatMap\Intermediate\Build\Win64\UE4Editor\Development\RuntimeHeatMap\Module.RuntimeHeatMap.gen.cpp.obj"
+"D:\Goulandis\Nike\Nike\Plugins\RuntimeHeatMap\Intermediate\Build\Win64\UE4Editor\Development\RuntimeHeatMap\Default.rc2.res"
+/OUT:"D:\Goulandis\Nike\Nike\Plugins\RuntimeHeatMap\Intermediate\Build\Win64\UE4Editor\Development\RuntimeHeatMap\UE4Editor-RuntimeHeatMap.lib"

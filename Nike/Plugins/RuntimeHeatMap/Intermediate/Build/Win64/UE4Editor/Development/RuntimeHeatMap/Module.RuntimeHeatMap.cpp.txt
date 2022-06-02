@@ -1,0 +1,8 @@
+D:\Goulandis\Nike\Nike\Plugins\RuntimeHeatMap\Intermediate\Build\Win64\UE4Editor\Development\RuntimeHeatMap\Definitions.RuntimeHeatMap.h
+D:/Goulandis/Nike/Nike/Plugins/RuntimeHeatMap/Source/RuntimeHeatMap/Private/Core/RuntimeHeatMapActor.cpp
+D:\Goulandis\Nike\Nike\Plugins\RuntimeHeatMap\Source\RuntimeHeatMap\Public\Core/RuntimeHeatMapActor.h
+D:\Goulandis\Nike\Nike\Plugins\RuntimeHeatMap\Intermediate\Build\Win64\UE4Editor\Inc\RuntimeHeatMap\RuntimeHeatMapActor.generated.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/KismetMaterialLibrary.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetMaterialLibrary.generated.h
+D:/Goulandis/Nike/Nike/Plugins/RuntimeHeatMap/Source/RuntimeHeatMap/Private/RuntimeHeatMap.cpp
+D:\Goulandis\Nike\Nike\Plugins\RuntimeHeatMap\Source\RuntimeHeatMap\Public\RuntimeHeatMap.h
