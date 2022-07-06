@@ -6,7 +6,8 @@
 	],
 	"DefaultResolution": "1920x1080",
 	"DefaultScreenMode":"全屏模式",
-	"Language":"EN",
+	"Account":"Admin",
+	"Password":"niketest",
 	"HeamtMapCameraPostion": [
 		{
 			"FloorNum": "F3",
