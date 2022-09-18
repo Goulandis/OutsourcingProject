@@ -355,7 +355,7 @@ namespace
 
 				UClass* PropertyClass = ObjectProperty->PropertyClass;
 				UObject* createdObj = StaticAllocateObject(PropertyClass, Outer, NAME_None, EObjectFlags::RF_NoFlags, EInternalObjectFlags::None, false);
-				(*PropertyClass->ClassConstructor)(FObjectInitializer(createdObj, PropertyClass->ClassDefaultObject, EObjectInitializerOptions::None));
+				(*PropertyClass->ClassConstructor)(FObjectInitializer(createdObj, PropertyClass->ClassDefaultObject, false, false));
 
 				ObjectProperty->SetObjectPropertyValue(OutValue, createdObj);
 
@@ -649,8 +649,14 @@ TSharedPtr<FJsonValue> USIOJConvert::JsonStringToJsonValue(const FString& JsonSt
 	//Object
 	if (JsonString.StartsWith(FString(TEXT("{"))))
 	{
-		TSharedPtr< FJsonObject > JsonObject = ToJsonObject(JsonString);
-		return MakeShareable(new FJsonValueObject(JsonObject));
+		TSharedPtr< FJsonObject > JsonObject = MakeShareable(new FJsonObject);
+		TSharedRef< TJsonReader<> > Reader = TJsonReaderFactory<>::Create(*JsonString);
+		bool success = FJsonSerializer::Deserialize(Reader, JsonObject);
+
+		if (success)
+		{
+			return MakeShareable(new FJsonValueObject(JsonObject));
+		}
 	}
 
 	//Array
@@ -746,7 +752,7 @@ TSharedPtr<FJsonObject> USIOJConvert::ToJsonObject(UStruct* StructDefinition, vo
 					//Override default enum behavior by fetching display name text
 					UEnum* EnumDef = BPEnumProperty->Enum;
 
-					uint8 IntValue = *(uint8*)Value;
+					int32 IntValue = *(int32*)Value;
 
 					//It's an enum byte
 					if (EnumDef)

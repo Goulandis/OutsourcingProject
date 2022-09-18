@@ -3,6 +3,16 @@
 	"EngineAssociation": "4.27",
 	"Category": "Geospatial",
 	"Description": "Getting started samples for Cesium for Unreal plugin.",
+	"Modules": [
+		{
+			"Name": "FlightSimulator",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	],
 	"Plugins": [
 		{
 			"Name": "CesiumForUnreal",
@@ -19,6 +29,11 @@
 		{
 			"Name": "SunPosition",
 			"Enabled": true
+		},
+		{
+			"Name": "VaRest",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/e47be161e7a24e928560290abd5dcc4f"
 		}
 	]
 }

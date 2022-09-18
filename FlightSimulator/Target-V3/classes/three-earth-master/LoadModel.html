@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>读取模型</title>
+    <script src="assets/plus/threejs/three.min.js"></script>
+    <script src="assets/plus/threejs/js/controls/OrbitControls.js"></script>
+    <script src="assets/plus/threejs/js/libs/stats.min.js"></script>
+    <script src="assets/plus/threejs/js/Detector.js"></script>
+
+    <script src="assets/plus/threejs/socketio-1.4.5.js"></script>
+    <script src="assets/plus/threejs/js/loaders/GLTFLoader.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0px;
+        }
+
+        div#canvas-frame {
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            height: 100vh;
+            background-color: #EEEEEE;
+        }
+
+        img {
+            width: 0px;
+            height: 0px;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+<script type="module">
+
+
+    // 场景
+    const scene = new THREE.Scene();
+    // 相机
+    const camera = new THREE.PerspectiveCamera(
+        45,
+        window.innerWidth / window.innerHeight,
+        1,
+        10000
+    );
+
+    const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true
+    });
+
+
+    camera.position.x = 8;
+    camera.position.y = 4;
+    camera.position.z = 1;
+
+    var loader = new THREE.GLTFLoader();
+
+
+    renderer.render(scene,camera);
+    // 添加灯光
+    const light = new THREE.AmbientLight("#ffffff"); // soft white light
+    scene.add(light);
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+
+    function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+    }
+    loader.load(
+        "./assets/plus/threejs/basic_plane/scene.gltf",
+        function (gltf) {
+            gltf.scene.position.setY(0);
+            console.log(gltf, "===");
+            scene.add(gltf.scene);
+            console.log("加载完成");
+            renderer.render(scene, camera);
+        },
+        (e) => {
+            console.log("加载中", e);
+        },
+        function (error) {
+            console.error('加载失败', error);
+        }
+    );
+
+    animate();
+</script>
+</body>
