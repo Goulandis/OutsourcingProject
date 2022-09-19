@@ -15,7 +15,7 @@ class FLIGHTSIMULATOR_API AFSWebSocket : public AActor
 	GENERATED_BODY()
 public:
 	UPROPERTY(EditAnywhere, Category = "FSWebSocket")
-	FString ServerURL = "ws://localhost:3003";
+	FString ServerURL = "ws://localhost:8080/myWs";
 	UPROPERTY(EditAnywhere, Category = "FSWebSocket")
 	FString ServerProtocol = "ws";
 	TSharedPtr<IWebSocket> Socket = nullptr;

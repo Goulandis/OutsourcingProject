@@ -1,0 +1,36 @@
+{
+	"Planes": [
+		{
+			"PlaneId": 1,
+			"PlaneType": "F35",
+			"PlaneLenght": 15.67,
+			"PlaneHeight": 4.33,
+			"WingSpan": 10.5,
+			"EmptyWeight": 13154
+		},
+		{
+			"PlaneId": 2,
+			"PlaneType": "F35",
+			"PlaneLenght": 15.67,
+			"PlaneHeight": 4.34,
+			"WingSpan": 10.7,
+			"EmptyWeight": 13156
+		},
+		{
+			"PlaneId": 3,
+			"PlaneType": "F35",
+			"PlaneLenght": 15.56,
+			"PlaneHeight": 4.37,
+			"WingSpan": 10.7,
+			"EmptyWeight": 13155
+		},
+		{
+			"PlaneId": 4,
+			"PlaneType": "F35",
+			"PlaneLenght": 15.67,
+			"PlaneHeight": 4.33,
+			"WingSpan": 10.6,
+			"EmptyWeight": 13153
+		}
+	]
+}
