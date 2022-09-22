@@ -17,7 +17,7 @@ public:
 	UPROPERTY(EditAnywhere, Category = "FSWebSocket")
 	FString ServerURL = "ws://localhost:8080/myWs";
 	UPROPERTY(EditAnywhere, Category = "FSWebSocket")
-	FString ServerProtocol = "ws";
+	FString ServerProtocol = "chat";
 	TSharedPtr<IWebSocket> Socket = nullptr;
 	UPROPERTY(BlueprintReadOnly, Category = "FSWebSocket")
 	bool IsConnected = false;
