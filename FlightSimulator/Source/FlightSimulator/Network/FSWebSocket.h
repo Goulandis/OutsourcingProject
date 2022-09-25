@@ -19,7 +19,7 @@ public:
 	UPROPERTY(EditAnywhere, Category = "FSWebSocket")
 	FString ServerProtocol = "chat";
 	TSharedPtr<IWebSocket> Socket = nullptr;
-	UPROPERTY(BlueprintReadOnly, Category = "FSWebSocket")
+	UPROPERTY(BlueprintReadWrite, Category = "FSWebSocket")
 	bool IsConnected = false;
 public:	
 	// Sets default values for this actor's properties
