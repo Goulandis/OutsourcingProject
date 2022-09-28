@@ -14,5 +14,5 @@ class FLIGHTSIMULATOR_API UCoordinateConversionFunLib : public UBlueprintFunctio
 {
 	GENERATED_BODY()
 	UFUNCTION(BlueprintCallable,Category="CoordinateConversionFunLib")
-	static FVector WGS84ToCartesian(float lat, float lon, float h);
+	static FVector WGS84ToCartesian(float lon, float lat, float h);
 };
