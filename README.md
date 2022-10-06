@@ -50,7 +50,7 @@ https://restapi.amap.com/v3/weather/weatherInfo?key=802041157c6fbd15b4ecd6897f65
 
 我们知道UE为Widget提供了Animation系统，除此之外，Widget还可以使用PaperFlipbook的帧动画，效果如图：
 
-![](Pics/2022_10_06_17_57_04_40 00_00_00-00_00_30.gif)
+![](https://github.com/Goulandis/OutsourcingProject/blob/main/Pics/2022_10_06_17_57_04_40%2000_00_00-00_00_30.gif)
 
 将每一帧的图片导入UE，并制作成Sprite，如：
 
