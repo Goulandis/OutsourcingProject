@@ -1,6 +1,6 @@
 # 一、预览
 
-![](Pics/2022_10_06_16_39_51_907 00_00_00-00_00_30.gif)
+![](https://github.com/Goulandis/OutsourcingProject/blob/main/Pics/2022_10_06_16_39_51_907%2000_00_00-00_00_30.gif)
 
 # 二、部分实现
 
