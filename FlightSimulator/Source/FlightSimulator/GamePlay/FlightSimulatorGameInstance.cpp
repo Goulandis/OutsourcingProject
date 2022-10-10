@@ -3,3 +3,7 @@
 
 #include "FlightSimulatorGameInstance.h"
 
+void UFlightSimulatorGameInstance::OnExit(const TSharedRef<SWindow>& window)
+{
+    OnWindowClose.Broadcast();
+}

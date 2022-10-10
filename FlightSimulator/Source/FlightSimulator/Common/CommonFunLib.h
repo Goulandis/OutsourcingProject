@@ -33,4 +33,7 @@ class FLIGHTSIMULATOR_API UCommonFunLib : public UBlueprintFunctionLibrary
 	static void SetConfigInt(FString Section, FString Key, FString FliePath, int& Value);
 	UFUNCTION(BlueprintCallable, Category = "WriteConfig")
 	static void SetConfigBool(FString Section, FString Key, FString FliePath, bool& Value);
+
+	UFUNCTION(BlueprintCallable, Category = "Window")
+	static void RequestDestroyWindowOverride();
 };

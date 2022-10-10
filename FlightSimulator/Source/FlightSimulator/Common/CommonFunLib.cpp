@@ -2,6 +2,10 @@
 
 
 #include "CommonFunLib.h"
+#include "Engine.h"
+#include "../GamePlay/FlightSimulatorGameInstance.h"
+#include "Widgets/SWindow.h"
+#include "Engine/World.h"
 
 DEFINE_LOG_CATEGORY(CommonFunLibLog);
 
@@ -78,4 +82,11 @@ void UCommonFunLib::SetConfigInt(FString Section, FString Key, FString FliePath,
 void UCommonFunLib::SetConfigBool(FString Section, FString Key, FString FliePath, bool& Value)
 {
     GConfig->SetBool(*Section, *Key, Value, FliePath);
+}
+
+void UCommonFunLib::RequestDestroyWindowOverride()
+{
+    GEngine->GameViewport->GetWindow()->SetRequestDestroyWindowOverride(FRequestDestroyWindowOverride::CreateUObject((UFlightSimulatorGameInstance*)(GWorld->GetGameInstance()), &UFlightSimulatorGameInstance::OnExit));
+    //SWindow* Window = GEngine->GameViewport->GetWindow().Get();
+    //Window->SetRequestDestroyWindowOverride
 }
