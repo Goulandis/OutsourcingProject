@@ -1,6 +1,7 @@
 # 预览
 
-![](Pics/2022_10_06_19_46_54_900 00_00_00-00_00_30~1.gif)
+
+![](![](https://github.com/Goulandis/OutsourcingProject/blob/FlightSimulator/Pics/2022_10_06_19_46_54_900%2000_00_00-00_00_30~1.gif))
 
 # 部分技术实现
 
@@ -55,3 +56,7 @@ void UCommonFunLib::RequestDestroyWindowOverride()
 然后再在蓝图中绑定自定义的执行事件即可，最终效果：
 
 ![](Pics/录制_2022_10_10_16_32_16_992 00_00_00-00_00_30~2.gif)
+=======
+C++服务器：FlightSimulator/Server-V9
+
+Java服务器：FlightSimulator/Server-V6
