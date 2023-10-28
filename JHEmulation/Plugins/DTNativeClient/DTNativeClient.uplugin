@@ -1,0 +1,29 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "2.2.5.dev",
+	"FriendlyName": "DTNativeClient",
+	"Description": "Twinverse Native SDK",
+	"Category": "Other",
+	"CreatedBy": "Digitwin Technologies",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "DTNativeClientCore",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "DTNativeClientTwinverse",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
