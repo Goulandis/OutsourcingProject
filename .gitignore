@@ -7,3 +7,7 @@ JHEmulation/Package
 JHEmulation/Saved
 JHEmulation/Plugins/VlcMedia/Binaries
 JHEmulation/Plugins/VlcMedia/Intermediate
+JHEmulation/Plugins/DTNativeClient/Binaries
+JHEmulation/Plugins/DTNativeClient/Intermediate
+JHEmulation/Plugins/FastChangeLanguage/Binaries
+JHEmulation/Plugins/FastChangeLanguage/Intermediate
