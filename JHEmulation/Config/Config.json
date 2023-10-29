@@ -1,0 +1,34 @@
+{
+	"Media":
+	{
+		"Rtsp":
+		{
+			"摄像头":"https://docs.unrealengine.com/4.26/Attachments/WorkingWithMedia/MediaFramework/HowTo/StreamMediaSource/Infiltrator%20Demo.mp4",
+			"激光雷达":"http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8",
+			"红外":"https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4",
+			"园区视频监控1":"https://stream7.iqilu.com/10339/upload_transcode/202002/09/20200209105011F0zPoYzHry.mp4",
+			"园区视频监控2":"https://v-cdn.zjol.com.cn/277003.mp4",
+			"园区视频监控3":"http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8",
+			"园区视频监控4":"https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4"
+		},
+		"Video":
+		{
+			"落石滚动":"",
+			"无人机故障":"",
+			"排爆":""
+		}
+	},
+	"UW_Introduce":
+	{
+		"SceneIntroduce":
+		{
+			"Title":"测试场简介",
+			"Content":"这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案这是一段测试场简介的文案"
+		},
+		"CarIntroduce":
+		{
+			"Title":"小车简介",
+			"Content":"这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案"
+		}
+	}
+}
