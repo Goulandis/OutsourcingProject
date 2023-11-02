@@ -43,5 +43,12 @@
 		"ClientEngine":"UnrealEngine",
 		"ClientOS":"Windows",
 		"EventName":"fui-commands created"
+	},
+	"Car":
+	{
+		"ShowPoint":false,
+		"Speed":200,
+		"LocusColor":"0,0.88,1,1",
+		"LocusEmissiveStrngth":0.5
 	}
 }
