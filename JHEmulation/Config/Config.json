@@ -13,9 +13,9 @@
 		},
 		"Video":
 		{
-			"落石滚动":"",
-			"无人机故障":"",
-			"排爆":""
+			"落石滚动":"E:/Goulandis/OutsourcingProject/JHEmulation/Content/Movies/Video/UEVideo.mp4",
+			"无人机故障":"E:/Goulandis/OutsourcingProject/JHEmulation/Content/Movies/Video/UEVideo.mp4",
+			"排爆":"E:/Goulandis/OutsourcingProject/JHEmulation/Content/Movies/Video/UEVideo.mp4"
 		}
 	},
 	"UI":
@@ -33,7 +33,7 @@
 				"Content":"这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案这是一段小车简介的文案"
 			}
 		},
-		"IsShowUI":false
+		"IsShowUI":true
 	},
 	"Server":
 	{
