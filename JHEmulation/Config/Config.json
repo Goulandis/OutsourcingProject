@@ -13,9 +13,11 @@
 		},
 		"Video":
 		{
-			"落石滚动":"E:/Goulandis/OutsourcingProject/JHEmulation/Content/Movies/Video/UEVideo.mp4",
-			"无人机故障":"E:/Goulandis/OutsourcingProject/JHEmulation/Content/Movies/Video/UEVideo.mp4",
-			"排爆":"E:/Goulandis/OutsourcingProject/JHEmulation/Content/Movies/Video/UEVideo.mp4"
+			"落石滚动":"E:/Git/OutsourcingProject/JHEmulation/Content/Movies/Video/UEVideo.mp4",
+			"无人机故障":"E:/Git/OutsourcingProject/JHEmulation/Content/Movies/Video/UEVideo.mp4",
+			"排爆":"E:/Git/OutsourcingProject/JHEmulation/Content/Movies/Video/RtspTest.mp4",
+			"小车简介":"E:/Git/OutsourcingProject/JHEmulation/Content/Movies/Video/UEVideo.mp4",
+			"场地简介":"Video/RtspTest.mp4"
 		}
 	},
 	"UI":
