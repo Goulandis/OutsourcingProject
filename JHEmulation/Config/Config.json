@@ -27,12 +27,12 @@
 			"SceneIntroduce":
 			{
 				"Title":"智能测试场简介",
-				"ContentPath":"Config/场地简介.txt"
+				"ContentPath":"Config/SceneIntroduce.txt"
 			},
 			"CarIntroduce":
 			{
 				"Title":"无人系统及关键部组件简介",
-				"ContentPath":"Config/小车简介.txt"
+				"ContentPath":"Config/CarIntroduce.txt"
 			}
 		},
 		"IsShowUI":true
