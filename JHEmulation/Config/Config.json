@@ -13,10 +13,10 @@
 		},
 		"Video":
 		{
-			"落石滚动":"E:/Git/OutsourcingProject/JHEmulation/Content/Movies/Video/UEVideo.mp4",
-			"无人机故障":"E:/Git/OutsourcingProject/JHEmulation/Content/Movies/Video/UEVideo.mp4",
-			"排爆":"E:/Git/OutsourcingProject/JHEmulation/Content/Movies/Video/RtspTest.mp4",
-			"小车简介":"E:/Git/OutsourcingProject/JHEmulation/Content/Movies/Video/UEVideo.mp4",
+			"落石滚动":"Video/UEVideo.mp4",
+			"无人机故障":"Video/UEVideo.mp4",
+			"排爆":"Video/RtspTest.mp4",
+			"小车简介":"Video/UEVideo.mp4",
 			"场地简介":"Video/RtspTest.mp4"
 		}
 	},
@@ -35,7 +35,8 @@
 				"ContentPath":"Config/CarIntroduce.txt"
 			}
 		},
-		"IsShowUI":true
+		"IsShowUI":true,
+		"PlayDelay":0.5
 	},
 	"Server":
 	{
@@ -52,5 +53,14 @@
 		"Speed":200,
 		"LocusColor":"0,0.88,1,1",
 		"LocusEmissiveStrngth":0.5
+	},
+	"DebugLog":
+	{
+		"Exclusions":
+		[
+			"PlayMedia",
+			"PauseMedia"
+		],
+		"Setup":true
 	}
 }
