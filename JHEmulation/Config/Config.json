@@ -1,7 +1,7 @@
 {
 	"Media":
 	{
-		"Rtsp":
+		"Rtsp_Field":
 		{
 			"摄像头":"https://docs.unrealengine.com/4.26/Attachments/WorkingWithMedia/MediaFramework/HowTo/StreamMediaSource/Infiltrator%20Demo.mp4",
 			"激光雷达":"http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8",
@@ -11,13 +11,21 @@
 			"园区视频监控3":"http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8",
 			"园区视频监控4":"https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4"
 		},
+		"Rtsp_Mock":
+		{
+			"摄像头":"Video/Video1.mp4",
+			"激光雷达":"Video/Video2.mp4",
+			"红外":"Video/Video3.mp4",
+			"园区视频监控1":"Video/Video4.mp4",
+			"园区视频监控2":"Video/Video5.mp4",
+			"园区视频监控3":"Video/Video6.mp4",
+			"园区视频监控4":"Video/Video7.mp4"
+		},
 		"Video":
 		{
-			"落石滚动":"Video/UEVideo.mp4",
-			"无人机故障":"Video/UEVideo.mp4",
-			"排爆":"Video/RtspTest.mp4",
-			"小车简介":"Video/UEVideo.mp4",
-			"场地简介":"Video/RtspTest.mp4"
+			"落石滚动":"Video/Video8.mp4",
+			"无人机故障":"Video/Video9.mp4",
+			"排爆":"Video/Video10.mp4",
 		}
 	},
 	"UI":
@@ -36,13 +44,14 @@
 			}
 		},
 		"IsShowUI":true,
-		"PlayDelay":0.5
+		"PlayDelay":0.5,
+		"DataType":"现场数据"
 	},
 	"Server":
 	{
 		"ServerURL":"",
-		"User":"",
-		"Password":"",
+		"User":"user01@dtdx.dev",
+		"Password":"user01",
 		"ClientEngine":"UnrealEngine",
 		"ClientOS":"Windows",
 		"EventName":"fui-commands created"
