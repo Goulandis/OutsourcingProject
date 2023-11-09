@@ -49,7 +49,8 @@
 	},
 	"Server":
 	{
-		"ServerURL":"",
+		"AllowConnectServer":false,
+		"ServerURL":"http://localhost:3030",
 		"User":"user01@dtdx.dev",
 		"Password":"user01",
 		"ClientEngine":"UnrealEngine",
