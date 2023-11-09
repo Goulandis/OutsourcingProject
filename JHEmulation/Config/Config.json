@@ -64,6 +64,11 @@
 		"LocusColor":"0,0.88,1,1",
 		"LocusEmissiveStrngth":0.5
 	},
+	"Scene":
+	{
+		"InitTime":12,
+		"InitSeason":"春季"
+	},
 	"DebugLog":
 	{
 		"Exclusions":
