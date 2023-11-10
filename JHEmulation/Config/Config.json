@@ -43,7 +43,7 @@
 				"ContentPath":"Config/CarIntroduce.txt"
 			}
 		},
-		"IsShowUI":true,
+		"IsShowUI":false,
 		"PlayDelay":0.5,
 		"DataType":"现场数据"
 	},
