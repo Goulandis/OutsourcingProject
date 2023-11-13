@@ -76,7 +76,10 @@
 	"Scene":
 	{
 		"InitTime":12,
-		"InitSeason":"春季"
+		"InitSeason":"春季",
+		"ViewBlendTime":2.0,
+		"AllowPlayDemo":false,
+		"DemoPlayRate":0.1
 	},
 	"DebugLog":
 	{
