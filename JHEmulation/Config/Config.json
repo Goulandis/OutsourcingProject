@@ -59,10 +59,19 @@
 	},
 	"Car":
 	{
-		"ShowPoint":false,
-		"Speed":200,
+		"MaxSpeed":200.0,
+		"ForwordWheelRotateSpeed":3.0,
+		"TurnWheelRotateSpeed":0.5,
+		"BackWheelRotateSpeed":2.0,
+		"TurnSpeed":0.1,
 		"LocusColor":"0,0.88,1,1",
-		"LocusEmissiveStrngth":0.5
+		"LocusEmissiveStrngth":0.5,
+		"Spline":
+		{
+			"ShowPoint":false,
+			"SetupLocus":false
+			
+		}
 	},
 	"Scene":
 	{
