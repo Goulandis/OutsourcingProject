@@ -78,7 +78,7 @@
 		"InitTime":12,
 		"InitSeason":"春季",
 		"ViewBlendTime":2.0,
-		"AllowPlayDemo":false,
+		"AllowPlayDemo":true,
 		"DemoPlayRate":0.1
 	},
 	"DebugLog":
