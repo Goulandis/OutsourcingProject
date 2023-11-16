@@ -78,7 +78,7 @@
 		"InitTime":12,
 		"InitSeason":"春季",
 		"ViewBlendTime":2.0,
-		"AllowPlayDemo":false
+		"AllowPlayDemo":true
 	},
 	"DebugLog":
 	{
@@ -87,6 +87,7 @@
 			"PlayMedia",
 			"PauseMedia"
 		],
-		"Setup":true
+		"Setup":true,
+		"DebugMode":true
 	}
 }
