@@ -43,7 +43,7 @@
 				"ContentPath":"Config/CarIntroduce.txt"
 			}
 		},
-		"IsShowUI":true,
+		"IsShowUI":false,
 		"PlayDelay":0.5,
 		"DataType":"现场数据"
 	},
@@ -78,16 +78,17 @@
 		"InitTime":12,
 		"InitSeason":"春季",
 		"ViewBlendTime":2.0,
-		"AllowPlayDemo":true
+		"AllowPlayDemo":false
 	},
-	"DebugLog":
+	"Debug":
 	{
-		"Exclusions":
+		"LogExclusions":
 		[
 			"PlayMedia",
 			"PauseMedia"
 		],
-		"Setup":true,
-		"DebugMode":true
+		"SetupDebugLog":true,
+		"DebugMode":true,
+		
 	}
 }
