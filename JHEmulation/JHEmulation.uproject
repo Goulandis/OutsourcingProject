@@ -26,10 +26,6 @@
 		{
 			"Name": "ElectraPlayer",
 			"Enabled": true
-		},
-		{
-			"Name": "FastChangeLanguage",
-			"Enabled": false
 		}
 	]
 }
