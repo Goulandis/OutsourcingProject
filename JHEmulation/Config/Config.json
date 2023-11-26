@@ -60,7 +60,7 @@
 	"Car":
 	{
 		"MaxSpeed":200.0,
-		"ForwordWheelRotateSpeed":3.0,
+		"ForwardWheelRotateSpeed":3.0,
 		"TurnWheelRotateSpeed":0.5,
 		"BackWheelRotateSpeed":2.0,
 		"TurnSpeed":0.1,
@@ -78,7 +78,7 @@
 		"InitTime":12,
 		"InitSeason":"春季",
 		"ViewBlendTime":2.0,
-		"AllowPlayDemo":false,
+		"AllowPlayDemo":true,
 		"CarPawnDemoSpeed":0.4
 	},
 	"Debug":
