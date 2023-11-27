@@ -79,7 +79,7 @@
 		"InitSeason":"春季",
 		"ViewBlendTime":2.0,
 		"AllowPlayDemo":true,
-		"CarPawnDemoSpeed":0.4
+		"CarPawnDemoSpeed":0.2
 	},
 	"Debug":
 	{
