@@ -5,6 +5,8 @@ OldCamera/DerivedDataCache
 OldCamera/Intermediate
 OldCamera/Package
 OldCamera/Saved
+OldCamera/Content/__ExternalActors__/
+OldCamera/Content/__ExternalObjects__/
 OldCamera/Plugins/FastChangeLanguage/Binaries
 OldCamera/Plugins/FastChangeLanguage/Intermediate
 OldCamera/Content/ARTWORKS/NeoChen/TEXTURES/T_WaiTan_01.uasset
