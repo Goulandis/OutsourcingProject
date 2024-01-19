@@ -65,7 +65,7 @@
 		"InitTime": 12,
 		"InitSeason": "春季",
 		"ViewBlendTime": 2.0,
-		"AllowPlayDemo": true,
+		"AllowPlayDemo": false,
 		"CarPawnDemoSpeed": 0.2
 	},
 	"Debug": {

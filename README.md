@@ -19,3 +19,5 @@
 如果是因为视频分辨率高，码率高导致卡顿可以参考这篇文章：[UE在同时播放多个视频，卡，丢帧情况 解决方法 – 虚拟制片之路 (ggwp.cn)](https://www.ggwp.cn/519/)
 
 而我因为打开视频源和播放的视频太多导致的卡顿，我们可以在`Project Settings/Plugins/IMG Media/Caching`下把Cache Size GB和Global Cache Size GB两个缓存设置得大一点，这样可以解除缓存限制。
+
+[关联GIS：条条道路通UE5城 - 哔哩哔哩 (bilibili.com)](https://www.bilibili.com/read/cv17081600/)
