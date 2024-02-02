@@ -28,11 +28,13 @@
 		"UW_Introduce": {
 			"SceneIntroduce": {
 				"Title": "智能测试场简介",
-				"ContentPath": "Config/SceneIntroduce.txt"
+				"ContentPath": "Config/SceneIntroduce.txt",
+				"Image":""
 			},
 			"CarIntroduce": {
 				"Title": "无人系统及关键部组件简介",
-				"ContentPath": "Config/CarIntroduce.txt"
+				"ContentPath": "Config/CarIntroduce.txt",
+				"Image":""
 			}
 		},
 		"IsShowUI": true,
