@@ -1,4 +1,5 @@
 {
+	"Version":"1.2.1-Beta",
 	"Media": {
 		"Rtsp_Field": {
 			"摄像头": "https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4",
@@ -7,6 +8,15 @@
 			"园区视频监控1": "https://stream7.iqilu.com/10339/upload_transcode/202002/09/20200209105011F0zPoYzHry.mp4",
 			"园区视频监控2": "https://v-cdn.zjol.com.cn/277003.mp4",
 			"园区视频监控3": "http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8",
+			"园区视频监控4": "https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4"
+		},
+		"Rtsp_HighResolution": {
+			"摄像头": "http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8",
+			"激光雷达": "https://docs.unrealengine.com/4.26/Attachments/WorkingWithMedia/MediaFramework/HowTo/StreamMediaSource/Infiltrator%20Demo.mp4",
+			"红外": "https://stream7.iqilu.com/10339/upload_transcode/202002/09/20200209105011F0zPoYzHry.mp4",
+			"园区视频监控1": "http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8",
+			"园区视频监控2": "http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8",
+			"园区视频监控3": "https://v-cdn.zjol.com.cn/277003.mp4",
 			"园区视频监控4": "https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4"
 		},
 		"Rtsp_Mock": {
@@ -22,7 +32,10 @@
 			"落石滚动": "Video/Video8.mp4",
 			"无人机故障": "Video/Video9.mp4",
 			"排爆": "Video/Video10.mp4"
-		}
+		},
+		"PlayMode":1,
+		"MediaEventMode1ReflashTime":10.0,
+		"DualResolutionMode":true
 	},
 	"UI": {
 		"UW_Introduce": {
@@ -75,6 +88,11 @@
 		"DISABLEALLSCREENMESSAGES",
 		"r.ScreenPercentage 200"
 	],
+	"Http":
+	{
+		"ReqWeatherInfoTimeInterval":5.0,
+		"ReqCarInfoTimeInterval":1.0
+	},
 	"Debug": {
 		"LogExclusions": [
 			"PlayMedia",
