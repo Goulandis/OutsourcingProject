@@ -80,7 +80,7 @@
 		"InitTime": 12,
 		"InitSeason": "春季",
 		"ViewBlendTime": 2.0,
-		"AllowPlayDemo": true,
+		"AllowPlayDemo": false,
 		"CarPawnDemoSpeed": 0.2,
 		"WhiteModleBuildingColor":"(R=0.5,G=0.5,B=0.5,A=1)"
 	},
