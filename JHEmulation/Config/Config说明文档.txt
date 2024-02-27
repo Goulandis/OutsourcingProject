@@ -1,6 +1,9 @@
 {
+	// 当前版本号
 	"Version":"1.2.1-Beta",
+	// 媒体相关配置
 	"Media": {
+		// 拉流视频默认分辨率地址，在单分辨率模式下，大窗和小窗使用同一个流地址
 		"Rtsp_Field": {
 			"摄像头": "https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4",
 			"激光雷达": "https://docs.unrealengine.com/4.26/Attachments/WorkingWithMedia/MediaFramework/HowTo/StreamMediaSource/Infiltrator%20Demo.mp4",
@@ -10,6 +13,7 @@
 			"园区视频监控3": "http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8",
 			"园区视频监控4": "https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4"
 		},
+		// 拉流视频高分辨率地址，在单分辨率模式下不使用，在双分辨率模式下，小窗使用默认分辨率地址，大窗使用高分辨率地址
 		"Rtsp_HighResolution": {
 			"摄像头": "http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8",
 			"激光雷达": "https://docs.unrealengine.com/4.26/Attachments/WorkingWithMedia/MediaFramework/HowTo/StreamMediaSource/Infiltrator%20Demo.mp4",
@@ -19,6 +23,7 @@
 			"园区视频监控3": "https://v-cdn.zjol.com.cn/277003.mp4",
 			"园区视频监控4": "https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4"
 		},
+		// 历史数据模式，拉流窗口使用的本地视频路径，支持在JHEmulation\Content\Movies\Video路径下设置相对路径，和任意文件夹下的绝对路径
 		"Rtsp_Mock": {
 			"摄像头": "Video/Video1.mp4",
 			"激光雷达": "Video/Video2.mp4",
@@ -28,32 +33,50 @@
 			"园区视频监控3": "Video/Video6.mp4",
 			"园区视频监控4": "Video/Video7.mp4"
 		},
+		// 落石滚动、无人机故障、排爆的本地视频路径，支持在JHEmulation\Content\Movies\Video路径下设置相对路径，和任意文件夹下的绝对路径
 		"Video": {
 			"落石滚动": "Video/Video8.mp4",
 			"无人机故障": "Video/Video9.mp4",
 			"排爆": "Video/Video10.mp4"
 		},
+		// 播放模式，0表示拉流视频，看哪个拉哪个的模式，1表示在软件启动时将所有流同时拉下来同时播放的模式，对播放的本地视频无效
 		"PlayMode":1,
+		// 已废弃，后面会删除
 		"MediaEventMode1ReflashTime":10.0,
+		// 双分辨率模式，设置成true会启用双分辨率模式，拉流窗口小窗使用默认分辨率地址，大窗使用高分辨率地址
 		"DualResolutionMode":false
 	},
+	// UI相关配置
 	"UI": {
+		// 智能测试场简介和小车简介配置
 		"UW_Introduce": {
 			"SceneIntroduce": {
+				// 智能测试场简介弹窗标题
 				"Title": "智能测试场简介",
+				// 智能测试场简介内容存储文件路径JHEmulation\Config\SceneIntroduce.txt,修改txt文件中内容即可修改弹窗显示的内容，
+				// 直接在弹窗中修改的内容也会保存到这个txt文件中
 				"ContentPath": "Config/SceneIntroduce.txt",
+				// 智能测试场简介窗口的图片配置，暂只支持绝对路径
 				"Image":""
 			},
 			"CarIntroduce": {
+				//无人系统及关键部组件简介弹窗标题
 				"Title": "无人系统及关键部组件简介",
+				// 无人系统及关键部组件简介内容存储文件路径JHEmulation\Config\SceneIntroduce.txt,修改txt文件中内容即可修改弹窗显示的内容，
+				// 直接在弹窗中修改的内容也会保存到这个txt文件中
 				"ContentPath": "Config/CarIntroduce.txt",
+				// 无人系统及关键部组件简介窗口的图片配置，暂只支持绝对路径
 				"Image":""
 			}
 		},
+		// 是否显示UI
 		"IsShowUI": true,
+		// 播放延迟，程序内部使用，无需改动
 		"PlayDelay": 0.5,
+		// 启动时的默认数据类型
 		"DataType": "现场数据"
 	},
+	// DTNativeClient插件连接服务器所需的相关配置
 	"Server": {
 		"AllowConnectServer": false,
 		"ServerURL": "http://localhost:3030",
@@ -63,36 +86,61 @@
 		"ClientOS": "Windows",
 		"EventName": "fui-commands created"
 	},
+	// 小车相关配置
 	"Car": {
+		// 最大导航速度
 		"MaxSpeed": 200.0,
+		// 小车轮子向前转动的转速
 		"ForwardWheelRotateSpeed": 3.0,
+		// 小车轮子转向时的转速
 		"TurnWheelRotateSpeed": 0.5,
+		// 小车轮子向后转动的转速
 		"BackWheelRotateSpeed": 2.0,
+		// 小车转向速度
 		"TurnSpeed": 0.1,
+		// 小车轨迹颜色
 		"LocusColor": "0,0.88,1,1",
+		// 小车轨迹自发光强度
 		"LocusEmissiveStrngth": 0.5,
+		// 小车轨迹线配置
 		"Spline": {
+			// 是否显示轨迹中记录的坐标点
 			"ShowPoint": false,
+			// 是否启动轨迹
 			"SetupLocus": false
 		}
 	},
+	// 场景相关配置
 	"Scene": {
+		// 软件启动时默认所处时间
 		"InitTime": 12,
+		// 软件启动时默认所处季节
 		"InitSeason": "春季",
+		// 小车开场动画结束后到UI显示时视角相机的位置移动的时间
 		"ViewBlendTime": 2.0,
+		// 是否开启小车动画
 		"AllowPlayDemo": false,
+		// 第一段小车动画中小车的速度
 		"CarPawnDemoSpeed": 0.2,
+		// 白模建筑的默认颜色
 		"WhiteModleBuildingColor":"(R=0.5,G=0.5,B=0.5,A=1)"
 	},
+	// 需要启动的UE引擎命令，重启软件生效
 	"ExecuteConsole":[
+		// 禁止屏幕打印,需要启用屏幕打印请更换为ENABLEALLSCREENMESSAGES
 		"DISABLEALLSCREENMESSAGES",
+		// 屏幕分辨率，数值越高抗锯齿越低，但同时消耗的机器性能越多
 		"r.ScreenPercentage 200"
 	],
+	// Http相关配置
 	"Http":
 	{
+		// 向服务器发送天气信息的Http请求的时间间隔
 		"ReqWeatherInfoTimeInterval":5.0,
+		// 向服务器发送小车信息的Http请求的时间间隔
 		"ReqCarInfoTimeInterval":1.0
 	},
+	// 开发调试用相关配置，一般不用管
 	"Debug": {
 		"LogExclusions": [
 			"PlayMedia",
