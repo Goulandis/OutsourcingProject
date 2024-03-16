@@ -92,7 +92,8 @@
 	"Http":
 	{
 		"ReqWeatherInfoTimeInterval":5.0,
-		"ReqCarInfoTimeInterval":1.0
+		"ReqCarInfoTimeInterval":1.0,
+		"AllowConnectHttpServer":false
 	},
 	"Debug": {
 		"LogExclusions": [
