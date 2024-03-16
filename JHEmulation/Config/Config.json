@@ -29,13 +29,14 @@
 			"园区视频监控4": "Video/Video7.mp4"
 		},
 		"Video": {
-			"落石滚动": "E:/Goulandis/OutsourcingProject/JHEmulation/Content/Movies/Video/Video1.mp4",
-			"无人机故障": "Video/Video2.mp4",
+			"落石滚动": "Video/Video1.mp4",
+			"无人机故障": "Video/Video4.mp4",
 			"排爆": "Video/Video10.mp4"
 		},
 		"PlayMode":1,
 		"MediaEventMode1ReflashTime":10.0,
-		"DualResolutionMode":false
+		"DualResolutionMode":false,
+		"AllowPlayMedia":false
 	},
 	"UI": {
 		"UW_Introduce": {
@@ -50,7 +51,7 @@
 				"Image":""
 			}
 		},
-		"IsShowUI": true,
+		"IsShowUI": false,
 		"PlayDelay": 0.5,
 		"DataType": "现场数据"
 	},
