@@ -44,7 +44,9 @@
 		// 已废弃，后面会删除
 		"MediaEventMode1ReflashTime":10.0,
 		// 双分辨率模式，设置成true会启用双分辨率模式，拉流窗口小窗使用默认分辨率地址，大窗使用高分辨率地址
-		"DualResolutionMode":false
+		"DualResolutionMode":false,
+		// 是否允许播放媒体
+		"AllowPlayMedia":true
 	},
 	// UI相关配置
 	"UI": {
@@ -138,7 +140,9 @@
 		// 向服务器发送天气信息的Http请求的时间间隔
 		"ReqWeatherInfoTimeInterval":5.0,
 		// 向服务器发送小车信息的Http请求的时间间隔
-		"ReqCarInfoTimeInterval":1.0
+		"ReqCarInfoTimeInterval":1.0,
+		// 是否允许连接Http服务器
+		"AllowConnectHttpServer":true
 	},
 	// 开发调试用相关配置，一般不用管
 	"Debug": {
