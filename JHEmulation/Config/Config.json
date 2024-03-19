@@ -36,7 +36,7 @@
 		"PlayMode":1,
 		"MediaEventMode1ReflashTime":10.0,
 		"DualResolutionMode":false,
-		"AllowPlayMedia":true
+		"AllowPlayMedia":false
 	},
 	"UI": {
 		"UW_Introduce": {
@@ -51,7 +51,7 @@
 				"Image":""
 			}
 		},
-		"IsShowUI": true,
+		"IsShowUI": false,
 		"PlayDelay": 0.5,
 		"DataType": "现场数据"
 	},
@@ -73,8 +73,9 @@
 		"LocusColor": "0,0.88,1,1",
 		"LocusEmissiveStrngth": 0.5,
 		"Spline": {
-			"ShowPoint": false,
-			"SetupLocus": false
+			"ShowPoint": true,
+			"SetupLocus": true,
+			"PointInterval":200
 		}
 	},
 	"Scene": {
@@ -82,6 +83,7 @@
 		"InitSeason": "春季",
 		"ViewBlendTime": 2.0,
 		"AllowPlayDemo": true,
+		"AllowPlayTheOpening":false,
 		"CarPawnDemoSpeed": 0.2,
 		"WhiteModleBuildingColor":"(R=0.5,G=0.5,B=0.5,A=1)"
 	},
@@ -93,7 +95,7 @@
 	{
 		"ReqWeatherInfoTimeInterval":5.0,
 		"ReqCarInfoTimeInterval":1.0,
-		"AllowConnectHttpServer":true
+		"AllowConnectHttpServer":false
 	},
 	"Debug": {
 		"LogExclusions": [
