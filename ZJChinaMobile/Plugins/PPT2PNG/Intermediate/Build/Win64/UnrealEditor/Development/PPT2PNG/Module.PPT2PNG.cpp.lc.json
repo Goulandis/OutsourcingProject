@@ -1,0 +1,18 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "e:\\goulandis\\zjchinamobile\\zjchinamobile\\plugins\\ppt2png\\intermediate\\build\\win64\\unrealeditor\\development\\ppt2png\\module.ppt2png.cpp",
+        "ProvidedModule": "",
+        "PCH": "e:\\goulandis\\zjchinamobile\\zjchinamobile\\intermediate\\build\\win64\\zjchinamobileeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "e:\\goulandis\\zjchinamobile\\zjchinamobile\\plugins\\ppt2png\\intermediate\\build\\win64\\unrealeditor\\development\\ppt2png\\definitions.ppt2png.h",
+            "e:\\goulandis\\zjchinamobile\\zjchinamobile\\plugins\\ppt2png\\source\\ppt2png\\private\\ppt2png.cpp",
+            "e:\\goulandis\\zjchinamobile\\zjchinamobile\\plugins\\ppt2png\\source\\ppt2png\\public\\ppt2png.h",
+            "e:\\goulandis\\zjchinamobile\\zjchinamobile\\plugins\\ppt2png\\source\\ppt2png\\private\\ppt2pngfunlib.cpp",
+            "e:\\goulandis\\zjchinamobile\\zjchinamobile\\plugins\\ppt2png\\source\\ppt2png\\public\\ppt2pngfunlib.h",
+            "e:\\goulandis\\zjchinamobile\\zjchinamobile\\plugins\\ppt2png\\intermediate\\build\\win64\\unrealeditor\\inc\\ppt2png\\ppt2pngfunlib.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
