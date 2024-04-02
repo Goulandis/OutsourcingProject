@@ -1,0 +1,18 @@
+{
+    "PythonServer":
+    {
+        "TimeDelay":
+        {
+            "StartFileDelay":2,
+            "OpenFilweMenuDelay":0.5,
+            "OpenOutputImgTagDelay":0.5,
+            "OutputImgDelay":2,
+            "CloseOutputImgTagDelay":0.5,
+            "OpenNextPPTDelay":2
+        },
+        "PPTDir":"E:/Goulandis/ZJChinaMobile/ZJChinaMobile/DiyContents",
+        "IP":"127.0.0.1",
+        "Port":7214,
+        "UpdRecvSize":1024
+    }
+}
