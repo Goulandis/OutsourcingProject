@@ -68,7 +68,7 @@ void UPPT2PNGFunLib::LoadPNG2Texture(TArray<UTexture2D*>& Texs, FString& Key, FS
 		}
 	}
 	TArray<FString> Arr;
-	Dir.ParseIntoArray(Arr,TEXT("\\"),false);
+	Dir.ParseIntoArray(Arr,TEXT("/"),false);
 	Key = Arr.Last();
 }
 
