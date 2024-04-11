@@ -12,17 +12,16 @@ DEFINE_LOG_CATEGORY(LOGPPT2PNG);
 
 void UCommonFunLib::SetupPPT2PNGServer()
 {
-	FString CmdStr = FPaths::ProjectPluginsDir() + "PPT2PNG/PythonServer/Setup.bat";
+	FString CmdStr = FPaths::ProjectDir() + "Setup.bat";
 	std::string Cmd = TCHAR_TO_UTF8(*CmdStr);
 	system(Cmd.c_str());
 }
 
 void UCommonFunLib::InitPPT2PNGScript()
 {
-	FString PyExe = FPaths::ProjectPluginsDir() + "PPT2PNG/PythonServer/Scripts/python.exe";
-	FString PyScript = FPaths::ProjectPluginsDir() + "PPT2PNG/PythonServer/PPT2PNG.py";
-	FString CmdStr = PyExe + " " + PyScript;
-	FString BatFile = FPaths::ProjectPluginsDir() + "PPT2PNG/PythonServer/Setup.bat";
+	FString PyScript = FPaths::ProjectDir() + "PPT2PNG.py";
+	FString CmdStr = "python " + PyScript;
+	FString BatFile = FPaths::ProjectPluginsDir() + "Setup.bat";
 	FFileHelper::SaveStringToFile(CmdStr,*BatFile);
 }
 

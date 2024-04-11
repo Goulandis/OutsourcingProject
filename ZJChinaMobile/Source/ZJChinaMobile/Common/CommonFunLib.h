@@ -21,14 +21,14 @@ class ZJCHINAMOBILE_API UCommonFunLib : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 
-	UFUNCTION(BlueprintCallable,Category="PPT2PNG")
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static void SetupPPT2PNGServer();
-	UFUNCTION(BlueprintCallable,Category="PPT2PNG")
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static void InitPPT2PNGScript();
-	UFUNCTION(BlueprintCallable,Category="PPT2PNG")
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static void LoadPNG2Texture(TArray<UTexture2D*>& Texs,FString& Key,FString Dir);
 	static TSharedPtr<IImageWrapper> GetImageWrapperByExtention(const FString& ImagePath);
-	UFUNCTION(BlueprintCallable,Category="PPT2PNG")
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static TArray<FTexList> LoadAllTextureRecursive(const FString& Dir);
 	static TArray<FString> GetAllSubdirectories(const FString& Dir);
 };

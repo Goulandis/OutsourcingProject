@@ -24,6 +24,10 @@
 		{
 			"Name": "JsonBlueprintUtilities",
 			"Enabled": true
+		},
+		{
+			"Name": "PPT2PNG",
+			"Enabled": false
 		}
 	]
 }
