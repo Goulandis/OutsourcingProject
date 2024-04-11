@@ -21,7 +21,7 @@ void UCommonFunLib::InitPPT2PNGScript()
 {
 	FString PyScript = FPaths::ProjectDir() + "PPT2PNG.py";
 	FString CmdStr = "python " + PyScript;
-	FString BatFile = FPaths::ProjectPluginsDir() + "Setup.bat";
+	FString BatFile = FPaths::ProjectDir() + "Setup.bat";
 	FFileHelper::SaveStringToFile(CmdStr,*BatFile);
 }
 
@@ -103,7 +103,6 @@ TArray<FTexList> UCommonFunLib::LoadAllTextureRecursive(const FString& Dir)
 				continue;
 			}
 			FString PNGDir = SubDirArr[0];
-			UE_LOG(LOGPPT2PNG,Warning,TEXT("PNGDir:%s"),*PNGDir)
 			TArray<UTexture2D*> Texs;
 			FString Key;
 			LoadPNG2Texture(Texs,Key,PNGDir);
