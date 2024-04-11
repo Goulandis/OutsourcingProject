@@ -11,6 +11,13 @@ FString UFileFunLib::ReadFile(const FString& Path,bool& Rel)
 	return Content;
 }
 
+TArray<FString> UFileFunLib::ReadFileByLine(const FString& Path, bool& Rel)
+{
+	TArray<FString> Lines;
+	Rel = FFileHelper::LoadFileToStringArray(Lines,*Path);
+	return Lines;
+}
+
 bool UFileFunLib::WriteFile(const FString& Path, const FString& Content)
 {
 	return FFileHelper::SaveStringToFile(Content,*Path);

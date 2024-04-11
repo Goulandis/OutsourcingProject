@@ -1,5 +1,5 @@
 {
-	"Version":"1.2.3-Beta",
+	"Version":"1.2.5-Beta",
 	"Media": {
 		"Rtsp_Field": {
 			"摄像头": "https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4",
@@ -73,7 +73,7 @@
 		"LocusEmissiveStrngth": 0.5,
 		"Spline": {
 			"AllowShowLocus":true,
-			"AllowShowPoint":false,
+			"AllowShowPoint":true,
 			"SetupLocus": true,
 			"PointInterval":200,
 			"LocusEmissiveStrength":5,
@@ -97,7 +97,7 @@
 	{
 		"ReqWeatherInfoTimeInterval":5.0,
 		"ReqCarInfoTimeInterval":1.0,
-		"AllowConnectHttpServer":false
+		"AllowConnectHttpServer":true
 	},
 	"Debug": {
 		"LogExclusions": [

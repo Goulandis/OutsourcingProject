@@ -16,6 +16,8 @@ class JHEMULATION_API UFileFunLib : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintCallable,Category="FileFunLib")
 	static FString ReadFile(const FString& Path,bool& Rel);
 	UFUNCTION(BlueprintCallable,Category="FileFunLib")
+	static TArray<FString> ReadFileByLine(const FString& Path,bool& Rel);
+	UFUNCTION(BlueprintCallable,Category="FileFunLib")
     static bool WriteFile(const FString& Path,const FString& Content);
 	UFUNCTION(BlueprintCallable,Category="FileFunLib")
 	static UTexture2D* LoadTexture2DFromFile(const FString& ImagePath);

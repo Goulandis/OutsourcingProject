@@ -1,6 +1,6 @@
 {
 	// 当前版本号
-	"Version":"1.2.1-Beta",
+	"Version":"1.2.4-Beta",
 	// 媒体相关配置
 	"Media": {
 		// 拉流视频默认分辨率地址，在单分辨率模式下，大窗和小窗使用同一个流地址
@@ -41,7 +41,7 @@
 		},
 		// 播放模式，0表示拉流视频，看哪个拉哪个的模式，1表示在软件启动时将所有流同时拉下来同时播放的模式，对播放的本地视频无效
 		"PlayMode":1,
-		// 已废弃，后面会删除
+		// 媒体事件模式刷新时间
 		"MediaEventMode1ReflashTime":10.0,
 		// 双分辨率模式，设置成true会启用双分辨率模式，拉流窗口小窗使用默认分辨率地址，大窗使用高分辨率地址
 		"DualResolutionMode":false,
@@ -106,10 +106,18 @@
 		"LocusEmissiveStrngth": 0.5,
 		// 小车轨迹线配置
 		"Spline": {
-			// 是否显示轨迹中记录的坐标点
-			"ShowPoint": false,
-			// 是否启动轨迹
-			"SetupLocus": false
+			// 允许显示小车路径
+			"AllowShowLocus":true,
+			// 允许显示坐标点
+			"AllowShowPoint":false,
+			// 启动小车路径功能
+			"SetupLocus": true,
+			// 坐标点间隔长度
+			"PointInterval":200,
+			// 小车路径发光强度
+			"LocusEmissiveStrength":5,
+			// 小车路径颜色
+			"LocusColor":"(R=0.000000,G=0.886645,B=1.000000,A=1.000000)"
 		}
 	},
 	// 场景相关配置
@@ -120,8 +128,10 @@
 		"InitSeason": "春季",
 		// 小车开场动画结束后到UI显示时视角相机的位置移动的时间
 		"ViewBlendTime": 2.0,
-		// 是否开启小车动画
-		"AllowPlayDemo": false,
+		// 是否允许播放小车动画
+		"AllowPlayCarDemo": true,
+		// 是否允许播放开场动画
+		"AllowPlayTheOpening":true,
 		// 第一段小车动画中小车的速度
 		"CarPawnDemoSpeed": 0.2,
 		// 白模建筑的默认颜色
