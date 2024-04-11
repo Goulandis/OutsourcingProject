@@ -1,0 +1,1 @@
+E:/Goulandis/ZJChinaMobile/ZJChinaMobile/Plugins/PPT2PNG/PythonServer/Scripts/python.exe E:/Goulandis/ZJChinaMobile/ZJChinaMobile/Plugins/PPT2PNG/PythonServer/PPT2PNG.py
