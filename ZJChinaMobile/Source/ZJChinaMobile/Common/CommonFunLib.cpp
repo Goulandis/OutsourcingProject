@@ -214,4 +214,17 @@ FString UCommonFunLib::GetKeyByDir(const FString& Dir)
 	return Arr.Last();
 }
 
+TArray<FString> UCommonFunLib::GetFilesFromDir(const FString& Dir)
+{
+	TArray<FString> FileNames;
+	IFileManager::Get().FindFiles(FileNames,*Dir);
+	TArray<FString> FilePaths;
+	for(FString FileName : FileNames)
+	{
+		FString FilePath = FPaths::Combine(Dir,FileName);
+		FilePaths.Add(FilePath);
+	}
+	return FilePaths;
+}
+
 

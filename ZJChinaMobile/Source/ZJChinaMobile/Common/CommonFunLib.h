@@ -37,4 +37,6 @@ class ZJCHINAMOBILE_API UCommonFunLib : public UBlueprintFunctionLibrary
 	static void GetClassifyDir(const FString RootDir,TArray<FString>& ImageDirs,TArray<FString>& VideoDirs);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static FString GetKeyByDir(const FString& Dir);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static TArray<FString> GetFilesFromDir(const FString& Dir);
 };
