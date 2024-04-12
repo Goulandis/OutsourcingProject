@@ -92,8 +92,6 @@ TArray<FTexList> UCommonFunLib::LoadAllTextureRecursive(const FString& Dir)
 	if(IFileManager::Get().DirectoryExists(*Dir))
 	{
 		TArray<FString> DirArr;
-		// IFileManager::Get().FindFilesRecursive(DirArr,*Dir,TEXT("*"),false,true,false);
-		
 		DirArr = GetAllSubdirectories(Dir);
 		for(FString SubDir : DirArr)
 		{
@@ -106,6 +104,50 @@ TArray<FTexList> UCommonFunLib::LoadAllTextureRecursive(const FString& Dir)
 			TArray<UTexture2D*> Texs;
 			FString Key;
 			LoadPNG2Texture(Texs,Key,PNGDir);
+			FTexList Texl;
+			Texl.Key = Key;
+			Texl.Texs = Texs;
+			Texls.Add(Texl);
+		}
+	}
+	return Texls;
+}
+
+TArray<FTexList> UCommonFunLib::LoadAllTextureFromDirList(const TArray<FString>& Dirs)
+{
+	TArray<FTexList> Texls;
+	for(FString Dir : Dirs)
+	{
+		TArray<FString> SubDir = GetAllSubdirectories(Dir);
+		if(SubDir.Num() == 0)
+		{
+			TArray<FString> FileNames;
+			IFileManager::Get().FindFiles(FileNames,*Dir);
+			bool HasImg = false;
+			for(FString FileName : FileNames)
+			{
+				if(FileName.EndsWith(".png") || FileName.EndsWith(".jpg") || FileName.EndsWith(".jpeg"))
+				{
+					HasImg = true;
+					break;
+				}
+			}
+			if(HasImg)
+			{
+				TArray<UTexture2D*> Texs;
+				FString Key;
+				LoadPNG2Texture(Texs,Key,Dir);
+				FTexList Texl;
+				Texl.Key = Key;
+				Texl.Texs = Texs;
+				Texls.Add(Texl);
+			}
+		}
+		if(SubDir.Num() > 0)
+		{
+			TArray<UTexture2D*> Texs;
+			FString Key;
+			LoadPNG2Texture(Texs,Key,SubDir[0]);
 			FTexList Texl;
 			Texl.Key = Key;
 			Texl.Texs = Texs;
@@ -143,6 +185,33 @@ TArray<FString> UCommonFunLib::GetAllSubdirectories(const FString& Dir)
 		_findclose(hFile);
 	}
 	return Dirs;
+}
+
+void UCommonFunLib::GetClassifyDir(const FString RootDir, TArray<FString>& ImageDirs, TArray<FString>& VideoDirs)
+{
+	TArray<FString> SubDirs = GetAllSubdirectories(RootDir);
+	for(FString Dir : SubDirs)
+	{
+		TArray<FString> FileNames;
+		UE_LOG(LOGPPT2PNG,Log,TEXT("%s"),*Dir)
+		IFileManager::Get().FindFiles(FileNames,*Dir);
+		if(FileNames.Num() == 0) continue;
+		if(FileNames[0].EndsWith(".png") || FileNames[0].EndsWith(".jpg") || FileNames[0].EndsWith(".jpeg") || FileNames[0].EndsWith(".pptx"))
+		{
+			ImageDirs.Add(Dir);
+		}
+		if(FileNames[0].EndsWith(".mp4"))
+		{
+			VideoDirs.Add(Dir);
+		}
+	}
+}
+
+FString UCommonFunLib::GetKeyByDir(const FString& Dir)
+{
+	TArray<FString> Arr;
+	Dir.ParseIntoArray(Arr,TEXT("/"),false);
+	return Arr.Last();
 }
 
 
