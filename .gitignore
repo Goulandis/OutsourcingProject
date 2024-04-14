@@ -8,6 +8,14 @@ ZJChinaMobile/Plugins/PPT2PNG/Intermediate
 ZJChinaMobile/.vsconfig
 ZJChinaMobile/.idea
 
+PPT2PNGUI/.vs
+PPT2PNGUI/Binaries
+PPT2PNGUI/DerivedDataCache
+PPT2PNGUI/Intermediate
+PPT2PNGUI/Saved
+PPT2PNGUI/.vsconfig
+PPT2PNGUI/.idea
+
 ZJChinaMobile/Content/00_TDoc/Art/textures/Plastic_normal.uasset
 ZJChinaMobile/Content/TwinmotionMaterials/LevelContent/Skybox/HDRI_Epic_Courtyard_Daylight.uasset
 ZJChinaMobile/Content/TwinmotionMaterials/Materials/Misc/Textures/T_Rubber_R.uasset
