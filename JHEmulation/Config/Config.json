@@ -1,5 +1,5 @@
 {
-	"Version":"1.2.5-Beta",
+	"Version":"1.2.9-Beta",
 	"Media": {
 		"Rtsp_Field": {
 			"摄像头": "https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4",
@@ -51,7 +51,7 @@
 				"Image":""
 			}
 		},
-		"IsShowUI": true,
+		"IsShowUI": false,
 		"PlayDelay": 0.5,
 		"DataType": "现场数据"
 	},
@@ -71,20 +71,25 @@
 		"BackWheelRotateSpeed": 2.0,
 		"TurnSpeed": 0.1,
 		"LocusEmissiveStrngth": 0.5,
+		"SetupNavigationAdsorption":true,
+		"HiddenCarFromStart":false,
+		"ShowNavigationPoint":false,
+		"ShowCarEffectDisdance":2000.0,
 		"Spline": {
 			"AllowShowLocus":true,
-			"AllowShowPoint":true,
+			"AllowShowPoint":false,
 			"SetupLocus": true,
 			"PointInterval":200,
 			"LocusEmissiveStrength":5,
-			"LocusColor":"(R=0.000000,G=0.886645,B=1.000000,A=1.000000)"
+			"LocusColor":"(R=1.000000,G=0.000000,B=0.000000,A=1.000000)",
+			"SplineLenght":100
 		}
 	},
 	"Scene": {
 		"InitTime": 12,
 		"InitSeason": "春季",
 		"ViewBlendTime": 2.0,
-		"AllowPlayCarDemo": false,
+		"AllowPlayCarDemo": true,
 		"AllowPlayTheOpening":false,
 		"CarPawnDemoSpeed": 0.2,
 		"WhiteModleBuildingColor":"(R=0.5,G=0.5,B=0.5,A=1)"
@@ -96,8 +101,10 @@
 	"Http":
 	{
 		"ReqWeatherInfoTimeInterval":5.0,
-		"ReqCarInfoTimeInterval":1.0,
-		"AllowConnectHttpServer":true
+		"ReqCarInfoTimeInterval":0.5,
+		"AllowConnectHttpServer":true,
+		"RequestWeatherInfoLink":" http://localhost:3030/weather/x",
+		"RequestCarInfoLink":"http://localhost:3030/vehicle/x"
 	},
 	"Debug": {
 		"LogExclusions": [
