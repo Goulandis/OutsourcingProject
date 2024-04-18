@@ -1,5 +1,5 @@
 {
-	"Version":"1.3.0-Beta",
+	"Version":"1.3.1-Beta",
 	"Media": {
 		"Rtsp_Field": {
 			"摄像头": "https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4",
@@ -75,7 +75,7 @@
 		"HiddenCarFromStart":false,
 		"ShowNavigationPoint":false,
 		"ShowCarEffectDisdance":2000.0,
-		"ShowNavigationTag":false,
+		"ShowNavigationTag":true,
 		"Spline": {
 			"AllowShowLocus":true,
 			"AllowShowPoint":false,
