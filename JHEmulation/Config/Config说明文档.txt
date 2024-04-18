@@ -104,6 +104,16 @@
 		"LocusColor": "0,0.88,1,1",
 		// 小车轨迹自发光强度
 		"LocusEmissiveStrngth": 0.5,
+		// 是否启动路径吸附
+		"SetupNavigationAdsorption":true,
+		// 是否从一开始隐藏导航小车
+		"HiddenCarFromStart":false,
+		// 是否显示GPS坐标点
+		"ShowNavigationPoint":false,
+		// 距离小车多远距离开始显示小车特效
+		"ShowCarEffectDisdance":2000.0,
+		// 是否显示小车车头的导航图标
+		"ShowNavigationTag":true,
 		// 小车轨迹线配置
 		"Spline": {
 			// 允许显示小车路径
@@ -117,7 +127,9 @@
 			// 小车路径发光强度
 			"LocusEmissiveStrength":5,
 			// 小车路径颜色
-			"LocusColor":"(R=0.000000,G=0.886645,B=1.000000,A=1.000000)"
+			"LocusColor":"(R=0.000000,G=0.886645,B=1.000000,A=1.000000)",
+			// 路径显示积累显示的长度，超过这个长度时路径会刷新，使路径始终保持这个长度
+			"SplineLenght":100
 		}
 	},
 	// 场景相关配置
