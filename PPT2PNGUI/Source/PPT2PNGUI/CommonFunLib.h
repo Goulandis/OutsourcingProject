@@ -17,4 +17,6 @@ class PPT2PNGUI_API UCommonFunLib : public UBlueprintFunctionLibrary
 	static void CopyFilesTo(TArray<FString> Files,FString Dir);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static void CopyFileTo(FString File,FString Dir);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static void SetScreenResolution(int Widget,int Height);
 };
