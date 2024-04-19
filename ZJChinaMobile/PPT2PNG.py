@@ -1,7 +1,18 @@
-import ppt2gif
 import json
 import os
-import shutil
+import subprocess
+try:
+    import ppt2gif
+    print("Module:ppt2gif installed")
+except ImportError:
+    print("Module:ppt2gif uninstalled so try to install")
+    subprocess.call(['python','-m','pip','install','ppt2gif==1.0.2'])
+try:
+    import shutil
+    print("Module:shutil installed")
+except ImportError:
+    print("Module:shutil uninstalled so try to install")
+    subprocess.call(['python','-m','pip','install','shutil'])
 
 def GetPPTsFromDir(RootDir,PPTs):
     Files = os.listdir(RootDir)

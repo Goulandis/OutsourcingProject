@@ -18,5 +18,12 @@ class PPT2PNGUI_API UCommonFunLib : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static void CopyFileTo(FString File,FString Dir);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static void CleanFolder(FString Dir);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static void SetScreenResolution(int Widget,int Height);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static void SetupPPT2PNG(FString Path);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static void InitPPT2PNGScript(FString Path);
+	
 };
