@@ -114,6 +114,10 @@
 		"ShowCarEffectDisdance":2000.0,
 		// 是否显示小车车头的导航图标
 		"ShowNavigationTag":true,
+		// 设置小车转向速度，数值越小，镜头转动越平滑，但小车转向越慢，数值越大，镜头转动越快，小车转向越快
+		"RotationRate":35,
+		// 是否显示小车光柱特效
+		"ShowCarEffect":false,
 		// 小车轨迹线配置
 		"Spline": {
 			// 允许显示小车路径
@@ -147,7 +151,9 @@
 		// 第一段小车动画中小车的速度
 		"CarPawnDemoSpeed": 0.2,
 		// 白模建筑的默认颜色
-		"WhiteModleBuildingColor":"(R=0.5,G=0.5,B=0.5,A=1)"
+		"WhiteModleBuildingColor":"(R=0.5,G=0.5,B=0.5,A=1)",
+		// 是否启用导航强
+		"SetupNavigationWall":false
 	},
 	// 需要启动的UE引擎命令，重启软件生效
 	"ExecuteConsole":[
