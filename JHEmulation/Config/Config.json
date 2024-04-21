@@ -1,5 +1,5 @@
 {
-	"Version":"1.3.8-Beta",
+	"Version":"1.3.9-Beta",
 	"Media": {
 		"Rtsp_Field": {
 			"摄像头": "https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4",
@@ -66,7 +66,7 @@
 	},
 	"Car": {
 		"MaxSpeed": 200.0,
-		"ForwardWheelRotateSpeed": 3.0,
+		"ForwardWheelRotateSpeed": 2,
 		"TurnWheelRotateSpeed": 0.5,
 		"BackWheelRotateSpeed": 2.0,
 		"TurnSpeed": 0.1,
@@ -95,7 +95,7 @@
 		"InitSeason": "春季",
 		"ViewBlendTime": 2.0,
 		"AllowPlayCarDemo": true,
-		"AllowPlayTheOpening":false,
+		"AllowPlayTheOpening":true,
 		"CarPawnDemoSpeed": 0.2,
 		"WhiteModleBuildingColor":"(R=0.5,G=0.5,B=0.5,A=1)",
 		"SetupNavigationWall":false
