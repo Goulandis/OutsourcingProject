@@ -8,6 +8,12 @@ except ImportError:
     print("Module:ppt2gif uninstalled so try to install")
     subprocess.call(['python','-m','pip','install','ppt2gif==1.0.2'])
 try:
+    import pathlib2
+    print("Module:pathlib2 installed")
+except ImportError:
+    print("Module:pathlib2 uninstalled so try to install")
+    subprocess.call(['python','-m','pip','install','pathlib2'])
+try:
     import shutil
     print("Module:shutil installed")
 except ImportError:
