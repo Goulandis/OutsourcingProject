@@ -6,19 +6,22 @@ try:
     print("Module:ppt2gif installed")
 except ImportError:
     print("Module:ppt2gif uninstalled so try to install")
-    subprocess.call(['python','-m','pip','install','ppt2gif==1.0.2'])
+    subprocess.call(['python','-m','pip','install','-i','https://pypi.tuna.tsinghua.edu.cn/simple','ppt2gif==1.0.2'])
 try:
     import pathlib2
     print("Module:pathlib2 installed")
 except ImportError:
     print("Module:pathlib2 uninstalled so try to install")
-    subprocess.call(['python','-m','pip','install','pathlib2'])
+    subprocess.call(['python','-m','pip','install','-i','https://pypi.tuna.tsinghua.edu.cn/simple','pathlib2==2.3.7.post1'])
 try:
     import shutil
     print("Module:shutil installed")
 except ImportError:
     print("Module:shutil uninstalled so try to install")
-    subprocess.call(['python','-m','pip','install','shutil'])
+    subprocess.call(['python','-m','pip','install','-i','https://pypi.tuna.tsinghua.edu.cn/simple','shutil'])
+
+import ppt2gif
+import shutil
 
 def GetPPTsFromDir(RootDir,PPTs):
     Files = os.listdir(RootDir)
