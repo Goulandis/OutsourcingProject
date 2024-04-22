@@ -95,7 +95,7 @@
 		"InitSeason": "春季",
 		"ViewBlendTime": 2.0,
 		"AllowPlayCarDemo": true,
-		"AllowPlayTheOpening":true,
+		"AllowPlayTheOpening":false,
 		"CarPawnDemoSpeed": 0.2,
 		"WhiteModleBuildingColor":"(R=0.5,G=0.5,B=0.5,A=1)",
 		"SetupNavigationWall":false
