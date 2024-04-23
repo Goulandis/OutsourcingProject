@@ -1,5 +1,5 @@
 {
-	"Version":"1.4.2-Beta",
+	"Version":"1.4.0-Beta",
 	"Media": {
 		"Rtsp_Field": {
 			"摄像头": "https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4",
@@ -107,7 +107,7 @@
 	"Http":
 	{
 		"ReqWeatherInfoTimeInterval":5.0,
-		"ReqCarInfoTimeInterval":1,
+		"ReqCarInfoTimeInterval":0.8,
 		"AllowConnectHttpServer":true,
 		"RequestWeatherInfoLink":" http://localhost:3030/weather/x",
 		"RequestCarInfoLink":"http://localhost:3030/vehicle/x"
