@@ -26,7 +26,7 @@ class ZJCHINAMOBILE_API UCommonFunLib : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static void InitPPT2PNGScript();
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
-	static void LoadPNG2Texture(TArray<UTexture2D*>& Texs,FString& Key,FString Dir);
+	static void LoadPNG2Texture(TArray<UTexture2D*>& Texs,FString Dir);
 	static TSharedPtr<IImageWrapper> GetImageWrapperByExtention(const FString& ImagePath);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static TArray<FTexList> LoadAllTextureRecursive(const FString& Dir);

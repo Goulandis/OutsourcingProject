@@ -25,7 +25,7 @@ void UCommonFunLib::InitPPT2PNGScript()
 	FFileHelper::SaveStringToFile(CmdStr,*BatFile);
 }
 
-void UCommonFunLib::LoadPNG2Texture(TArray<UTexture2D*>& Texs, FString& Key, FString Dir)
+void UCommonFunLib::LoadPNG2Texture(TArray<UTexture2D*>& Texs, FString Dir)
 {
 	if(!IFileManager::Get().DirectoryExists(*Dir))
 	{
@@ -67,9 +67,6 @@ void UCommonFunLib::LoadPNG2Texture(TArray<UTexture2D*>& Texs, FString& Key, FSt
 			}
 		}
 	}
-	// TArray<FString> Arr;
-	// Dir.ParseIntoArray(Arr,TEXT("/"),false);
-	// Key = Arr.Last();
 }
 
 TSharedPtr<IImageWrapper> UCommonFunLib::GetImageWrapperByExtention(const FString& ImagePath)
@@ -103,7 +100,10 @@ TArray<FTexList> UCommonFunLib::LoadAllTextureRecursive(const FString& Dir)
 			FString PNGDir = SubDirArr[0];
 			TArray<UTexture2D*> Texs;
 			FString Key;
-			LoadPNG2Texture(Texs,Key,PNGDir);
+			TArray<FString> Arr;
+			Dir.ParseIntoArray(Arr,TEXT("/"),false);
+			Key = Arr.Last();
+			LoadPNG2Texture(Texs,PNGDir);
 			FTexList Texl;
 			Texl.Key = Key;
 			Texl.Texs = Texs;
@@ -139,7 +139,7 @@ TArray<FTexList> UCommonFunLib::LoadAllTextureFromDirList(const TArray<FString>&
 				TArray<FString> Arr;
 				Dir.ParseIntoArray(Arr,TEXT("/"),false);
 				Key = Arr.Last();
-				LoadPNG2Texture(Texs,Key,Dir);
+				LoadPNG2Texture(Texs,Dir);
 				FTexList Texl;
 				Texl.Key = Key;
 				Texl.Texs = Texs;
@@ -153,7 +153,7 @@ TArray<FTexList> UCommonFunLib::LoadAllTextureFromDirList(const TArray<FString>&
 			TArray<FString> Arr;
 			Dir.ParseIntoArray(Arr,TEXT("/"),false);
 			Key = Arr.Last();
-			LoadPNG2Texture(Texs,Key,SubDir[0]);
+			LoadPNG2Texture(Texs,SubDir[0]);
 			FTexList Texl;
 			Texl.Key = Key;
 			Texl.Texs = Texs;

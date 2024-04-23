@@ -6,9 +6,16 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "CommonFunLib.generated.h"
 
-/**
- * 
- */
+USTRUCT(BlueprintType)
+struct FContent
+{
+	GENERATED_BODY()
+	UPROPERTY(BlueprintReadWrite)
+	FString Key;
+	UPROPERTY(BlueprintReadWrite)
+	TArray<FString> Content;
+};
+
 UCLASS()
 class PPT2PNGUI_API UCommonFunLib : public UBlueprintFunctionLibrary
 {
@@ -25,5 +32,8 @@ class PPT2PNGUI_API UCommonFunLib : public UBlueprintFunctionLibrary
 	static void SetupPPT2PNG(FString Path);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static void InitPPT2PNGScript(FString Path);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static TArray<FContent> GetContentFromDir(FString Dir);
+	static TArray<FString> GetAllSubdirectories(const FString& Dir);
 	
 };
