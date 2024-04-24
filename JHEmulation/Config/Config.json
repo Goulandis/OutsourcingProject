@@ -36,7 +36,8 @@
 		"PlayMode":1,
 		"MediaEventMode1ReflashTime":10.0,
 		"DualResolutionMode":false,
-		"AllowPlayMedia":false
+		"AllowPlayMedia":true,
+		"ReopenMediaTimeInterval":600
 	},
 	"UI": {
 		"UW_Introduce": {
