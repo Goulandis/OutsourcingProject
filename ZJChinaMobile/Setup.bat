@@ -1,1 +1,1 @@
-python E:/Git/ZJChinaMobile/ZJChinaMobile/PPT2PNG.py
+python E:/Goulandis/ZJChinaMobile/ZJChinaMobile/PPT2PNG.py
