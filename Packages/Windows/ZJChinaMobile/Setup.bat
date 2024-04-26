@@ -1,1 +1,0 @@
-python E:/Goulandis/ZJChinaMobile/Packages/Windows/ZJChinaMobile/PPT2PNG.py
