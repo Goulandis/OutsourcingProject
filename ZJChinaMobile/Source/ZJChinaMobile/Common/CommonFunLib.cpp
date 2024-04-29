@@ -174,17 +174,13 @@ TArray<FString> UCommonFunLib::GetAllSubdirectories(const FString& Dir)
 	{
 		do
 		{
-			if(FileInfo.attrib & _A_SUBDIR)
+			if(FileInfo.attrib & _A_SUBDIR && strcmp(FileInfo.name,".") != 0 && strcmp(FileInfo.name,"..") != 0)
 			{
 				const char* DirNameChr = p.assign(Path).append("/").append(FileInfo.name).c_str();
 				int Size = MultiByteToWideChar(CP_OEMCP,0,DirNameChr,strlen(DirNameChr)+1,NULL,0);
 				wchar_t* DirNameWChr = new wchar_t[Size];
 				MultiByteToWideChar(CP_OEMCP,0,DirNameChr,strlen(DirNameChr)+1,DirNameWChr,Size);
-				FString Item = DirNameWChr;
-				if(!Item.Contains(TEXT(".")))
-				{
-					Dirs.Add(Item);
-				}
+				Dirs.Add(FString(DirNameWChr));
 			}
 		}
 		while(_findnext(hFile,&FileInfo) == 0);
@@ -199,7 +195,6 @@ void UCommonFunLib::GetClassifyDir(const FString RootDir, TArray<FString>& Image
 	for(FString Dir : SubDirs)
 	{
 		TArray<FString> FileNames;
-		UE_LOG(LOGPPT2PNG,Log,TEXT("%s"),*Dir)
 		IFileManager::Get().FindFiles(FileNames,*Dir);
 		if(FileNames.Num() == 0) continue;
 		if(FileNames[0].EndsWith(".png") || FileNames[0].EndsWith(".jpg") || FileNames[0].EndsWith(".jpeg") || FileNames[0].EndsWith(".pptx"))

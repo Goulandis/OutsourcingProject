@@ -1,7 +1,16 @@
-ZJChinaMobile/Content/00_TDoc/Art/textures/Plastic_normal.uasset
 ZJChinaMobile/Content/TwinmotionMaterials/LevelContent/Skybox/HDRI_Epic_Courtyard_Daylight.uasset
 ZJChinaMobile/Content/TwinmotionMaterials/Materials/Misc/Textures/T_Rubber_R.uasset
 ZJChinaMobile/Content/Project/Rig/Mod/01/衣服_Normal_OpenGL.uasset
 ZJChinaMobile/Content/Project/Rig/Mod/01/dance-graceful_250999_0_Open_A_UE4.uasset
 ZJChinaMobile/Content/Project/Rig/Mod/01/dance-graceful_250999_dance-graceful_250999.uasset
 ZJChinaMobile/Content/Project/Rig/Mod/01/dance-graceful_250999_dance-graceful_250999/Driving_dance-graceful_250999_dance-graceful_250999.uasset
+ZJChinaMobile/Content/JiangJieYuan/Mod/Material/Body/body/Textures/T_XiaoC_Body_Dif.uasset
+ZJChinaMobile/Content/JiangJieYuan/Mod/Material/Body/body/Textures/T_XiaoC_Body_Nor.uasset
+ZJChinaMobile/Content/JiangJieYuan/Mod/Material/Body/body/Textures/T_XiaoC_Body_Rou.uasset
+ZJChinaMobile/Content/JiangJieYuan/Mod/Material/Body/body/Textures/T_XiaoC_Body_SRS.uasset
+ZJChinaMobile/Content/JiangJieYuan/Mod/Material/MaterialLibrary/BaseTextures/Face/UEUM0001_Body_SRS.uasset
+ZJChinaMobile/Content/00_TDoc/Art/Meshes/CHANGJINGDAOJU/wurenji01/wurenji01.uasset
+ZJChinaMobile/Content/00_TDoc/Art/textures/Plastic_normal.uasset
+ZJChinaMobile/Content/Main_BuiltData.uasset
+ZJChinaMobile/Content/00_TDoc/Art/Meshes/shapan2/zhihuiyiliao_02.uasset
+ZJChinaMobile/Content/00_TDoc/Art/Meshes/SHAPAN/ZHEYI02.uasset
