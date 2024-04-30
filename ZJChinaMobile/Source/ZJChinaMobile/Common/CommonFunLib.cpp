@@ -83,35 +83,35 @@ TSharedPtr<IImageWrapper> UCommonFunLib::GetImageWrapperByExtention(const FStrin
 	return nullptr;
 }
 
-TArray<FTexList> UCommonFunLib::LoadAllTextureRecursive(const FString& Dir)
+TMap<FString, FString> UCommonFunLib::GetDirType(const TArray<FString>& Dirs)
 {
-	TArray<FTexList> Texls;
-	if(IFileManager::Get().DirectoryExists(*Dir))
+	TMap<FString,FString> DirTypeMap;
+	for(FString Dir : Dirs)
 	{
-		TArray<FString> DirArr;
-		DirArr = GetAllSubdirectories(Dir);
-		for(FString SubDir : DirArr)
+		TArray<FString> FileNames;
+		IFileManager::Get().FindFiles(FileNames,*Dir);
+		if(FileNames.Num() == 0)
 		{
-			TArray<FString> SubDirArr = GetAllSubdirectories(SubDir);
-			if(SubDirArr.Num() < 0)
-			{
-				continue;
-			}
-			FString PNGDir = SubDirArr[0];
-			TArray<UTexture2D*> Texs;
-			FString Key;
-			TArray<FString> Arr;
-			Dir.ParseIntoArray(Arr,TEXT("/"),false);
-			Key = Arr.Last();
-			LoadPNG2Texture(Texs,PNGDir);
-			FTexList Texl;
-			Texl.Key = Key;
-			Texl.Texs = Texs;
-			Texls.Add(Texl);
+			continue;
+		}
+		if(FileNames[0].EndsWith(".png") || FileNames[0].EndsWith(".jpg") || FileNames[0].EndsWith(".jpeg"))
+		{
+			DirTypeMap.Add(TPair<FString,FString>(Dir,TEXT("Image")));
+			continue;
+		}
+		if(FileNames[0].EndsWith(".pptx"))
+		{
+			DirTypeMap.Add(TPair<FString,FString>(Dir,TEXT("PPT")));
+			continue;
+		}
+		if(FileNames[0].EndsWith(".mp4"))
+		{
+			DirTypeMap.Add(TPair<FString,FString>(Dir,TEXT("Video")));
 		}
 	}
-	return Texls;
+	return DirTypeMap;
 }
+
 
 TArray<FTexList> UCommonFunLib::LoadAllTextureFromDirList(const TArray<FString>& Dirs)
 {
@@ -189,14 +189,22 @@ TArray<FString> UCommonFunLib::GetAllSubdirectories(const FString& Dir)
 	return Dirs;
 }
 
-void UCommonFunLib::GetClassifyDir(const FString RootDir, TArray<FString>& ImageDirs, TArray<FString>& VideoDirs)
+void UCommonFunLib::GetClassifyDir(const FString RootDir, TArray<FString>& ImageDirs, TArray<FString>& VideoDirs,TArray<FString>& OptionalDirs)
 {
 	TArray<FString> SubDirs = GetAllSubdirectories(RootDir);
 	for(FString Dir : SubDirs)
 	{
 		TArray<FString> FileNames;
 		IFileManager::Get().FindFiles(FileNames,*Dir);
-		if(FileNames.Num() == 0) continue;
+		if(FileNames.Num() == 0)
+		{
+			TArray<FString> SubSubDirs = GetAllSubdirectories(Dir);
+			if(SubSubDirs.Num() > 0)
+			{
+				OptionalDirs.Add(Dir);
+			}
+			continue;
+		}
 		if(FileNames[0].EndsWith(".png") || FileNames[0].EndsWith(".jpg") || FileNames[0].EndsWith(".jpeg") || FileNames[0].EndsWith(".pptx"))
 		{
 			ImageDirs.Add(Dir);

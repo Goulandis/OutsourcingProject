@@ -29,13 +29,13 @@ class ZJCHINAMOBILE_API UCommonFunLib : public UBlueprintFunctionLibrary
 	static void LoadPNG2Texture(TArray<UTexture2D*>& Texs,FString Dir);
 	static TSharedPtr<IImageWrapper> GetImageWrapperByExtention(const FString& ImagePath);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
-	static TArray<FTexList> LoadAllTextureRecursive(const FString& Dir);
+	static TMap<FString,FString> GetDirType(const TArray<FString>& Dirs);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static TArray<FTexList> LoadAllTextureFromDirList(const TArray<FString>& Dirs);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static TArray<FString> GetAllSubdirectories(const FString& Dir);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
-	static void GetClassifyDir(const FString RootDir,TArray<FString>& ImageDirs,TArray<FString>& VideoDirs);
+	static void GetClassifyDir(const FString RootDir,TArray<FString>& ImageDirs,TArray<FString>& VideoDirs,TArray<FString>& OptionalDirs);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static FString GetKeyByDir(const FString& Dir);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
