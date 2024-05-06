@@ -7,6 +7,7 @@
 #include "Windows/AllowWindowsPlatformTypes.h"
 #include <windows.h>
 #include "Windows/HideWindowsPlatformTypes.h"
+#include <codecvt>
 
 DEFINE_LOG_CATEGORY(LOGPPT2PNG);
 
@@ -167,23 +168,47 @@ TArray<FString> UCommonFunLib::GetAllSubdirectories(const FString& Dir)
 {
 	TArray<FString> Dirs;
 	long long hFile = 0;
-	struct _finddata_t FileInfo;
-	std::string p;
-	std::string Path = TCHAR_TO_UTF8(*Dir);
-	if ((hFile = _findfirst(p.assign(Path).append("\\*").c_str(), &FileInfo)) != -1)
+	// struct _finddata_t FileInfo;
+	// std::string p;
+	// std::string Path = TCHAR_TO_UTF8(*Dir);
+	
+	// if ((hFile = _findfirst(p.assign(Path).append("\\*").c_str(), &FileInfo)) != -1)
+	// {
+	// 	do
+	// 	{
+	// 		if(FileInfo.attrib & _A_SUBDIR && strcmp(FileInfo.name,".") != 0 && strcmp(FileInfo.name,"..") != 0)
+	// 		{
+	// 			const char* DirNameChr = p.assign(Path).append("/").append(FileInfo.name).c_str();
+	// 			int Size = MultiByteToWideChar(CP_OEMCP,0,DirNameChr,strlen(DirNameChr)+1,NULL,0);
+	// 			wchar_t* DirNameWChr = new wchar_t[Size];
+	// 			MultiByteToWideChar(CP_OEMCP,0,DirNameChr,strlen(DirNameChr)+1,DirNameWChr,Size);
+	// 			Dirs.Add(FString(DirNameWChr));
+	// 		}
+	// 	}
+	// 	while(_findnext(hFile,&FileInfo) == 0);
+	// 	_findclose(hFile);
+	// }
+
+	_wfinddata_t FileInfo;
+	std::wstring_convert<std::codecvt_utf8<wchar_t>> Conv;
+	std::wstring RootPath = Conv.from_bytes(TCHAR_TO_UTF8(*Dir));
+	std::wstring WPath = RootPath + L"\\*";
+	//std::wstring* wp;
+	if ((hFile = _wfindfirst(WPath.c_str(), &FileInfo)) != -1)
 	{
 		do
 		{
-			if(FileInfo.attrib & _A_SUBDIR && strcmp(FileInfo.name,".") != 0 && strcmp(FileInfo.name,"..") != 0)
+			if(FileInfo.attrib & _A_SUBDIR && wcscmp(FileInfo.name,L".") != 0 && wcscmp(FileInfo.name,L"..") != 0)
 			{
-				const char* DirNameChr = p.assign(Path).append("/").append(FileInfo.name).c_str();
-				int Size = MultiByteToWideChar(CP_OEMCP,0,DirNameChr,strlen(DirNameChr)+1,NULL,0);
-				wchar_t* DirNameWChr = new wchar_t[Size];
-				MultiByteToWideChar(CP_OEMCP,0,DirNameChr,strlen(DirNameChr)+1,DirNameWChr,Size);
-				Dirs.Add(FString(DirNameWChr));
+				std::wstring SubPath = RootPath + L"/" + FileInfo.name;
+				const wchar_t* DirNameChr = SubPath.c_str();
+				//int Size = MultiByteToWideChar(CP_OEMCP,0,DirNameChr,strlen(DirNameChr)+1,NULL,0);
+				//wchar_t* DirNameWChr = new wchar_t[Size];
+				//MultiByteToWideChar(CP_OEMCP,0,DirNameChr,strlen(DirNameChr)+1,DirNameWChr,Size);
+				Dirs.Add(FString(DirNameChr));
 			}
 		}
-		while(_findnext(hFile,&FileInfo) == 0);
+		while(_wfindnext(hFile,&FileInfo) == 0);
 		_findclose(hFile);
 	}
 	return Dirs;
