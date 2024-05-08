@@ -261,4 +261,45 @@ TArray<FString> UCommonFunLib::GetFilesFromDir(const FString& Dir)
 	return FilePaths;
 }
 
+bool UCommonFunLib::ChineseCompare(FString Source, FString Target)
+{
+	std::wstring_convert<std::codecvt_utf8<wchar_t>> Conv;
+	std::wstring WSource = Conv.from_bytes(TCHAR_TO_UTF8(*Source));
+	std::wstring WTarget = Conv.from_bytes(TCHAR_TO_UTF8(*Target));
+	return !(WSource >= WTarget);
+}
+
+void UCommonFunLib::ChineseSrot(TArray<FString>& Results, TArray<FString> StrArr)
+{
+	if(StrArr.Num() <= 0)
+	{
+		return;
+	}
+	std::wstring_convert<std::codecvt_utf8<wchar_t>> Conv;
+	std::wstring Tmp;
+	int Index = 0;
+	for(int i=0;i<StrArr.Num();++i)
+	{
+		FString FirstStr = StrArr[i].Mid(0,1);
+		std::wstring WStr = Conv.from_bytes(TCHAR_TO_UTF8(*FirstStr));
+		if(Tmp == L"")
+		{
+			Tmp = WStr;
+			Index = i;
+		}
+		else
+		{
+			if(Tmp < WStr)
+			{
+				Tmp = WStr;
+				Index = i;
+			}
+		}
+	}
+	Results.Add(StrArr[Index]);
+	StrArr.RemoveAt(Index);
+	ChineseSrot(Results,StrArr);
+}
+
+
 

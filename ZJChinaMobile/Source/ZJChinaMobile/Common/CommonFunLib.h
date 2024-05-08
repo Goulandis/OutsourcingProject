@@ -40,4 +40,9 @@ class ZJCHINAMOBILE_API UCommonFunLib : public UBlueprintFunctionLibrary
 	static FString GetKeyByDir(const FString& Dir);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static TArray<FString> GetFilesFromDir(const FString& Dir);
+
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static bool ChineseCompare(FString Source,FString Target);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static void ChineseSrot(TArray<FString>& Results,TArray<FString> StrArr);
 };
