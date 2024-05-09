@@ -8,6 +8,8 @@
 #include "Engine.h"
 #include <codecvt>
 #include <corecrt_io.h>
+#include "DesktopPlatformModule.h"
+#include "Windows/WindowsWindow.h"
 
 void UCommonFunLib::CopyFilesTo(TArray<FString> Files, FString Dir)
 {

@@ -35,5 +35,4 @@ class PPT2PNGUI_API UCommonFunLib : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static TArray<FContent> GetContentFromDir(FString Dir);
 	static TArray<FString> GetAllSubdirectories(const FString& Dir);
-	
 };
