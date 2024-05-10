@@ -8,8 +8,6 @@
 #include "Engine.h"
 #include <codecvt>
 #include <corecrt_io.h>
-#include "DesktopPlatformModule.h"
-#include "Windows/WindowsWindow.h"
 
 void UCommonFunLib::CopyFilesTo(TArray<FString> Files, FString Dir)
 {
@@ -17,9 +15,36 @@ void UCommonFunLib::CopyFilesTo(TArray<FString> Files, FString Dir)
 	for(FString File : Files)
 	{
 		FString TargetFile = FPaths::Combine(Dir,FPaths::GetCleanFilename(File));
-		UE_LOG(LogTemp,Log,TEXT("TargetFile:%s"),*TargetFile);
 		CopyFileTo(File,TargetFile);
 	}
+}
+
+TArray<FString> UCommonFunLib::CopyFoldersTo(FString RootDir, FString TargetDir)
+{
+	CleanFolder(TargetDir);
+	TArray<FString> SubDirsSubfix;
+	TArray<FString> SubDirs = GetAllSubdirectories(RootDir);
+	for(FString SubDir : SubDirs)
+	{
+		TArray<FString> Splits;
+		SubDir.ParseIntoArray(Splits,TEXT("/"));
+		FString Subfix = Splits.Last();
+		SubDirsSubfix.Add(Subfix);
+		FString NewTargetSubDir = FPaths::Combine(TargetDir,Subfix);
+		if(FPlatformFileManager::Get().GetPlatformFile().CreateDirectory(*NewTargetSubDir))
+		{
+			TArray<FString> Files;
+			IFileManager::Get().FindFiles(Files,*SubDir);
+			for(FString File : Files)
+			{
+				FString CleanFilename = FPaths::GetCleanFilename(File);
+				FString FilePath = FPaths::Combine(SubDir,File);
+				FString NewFilePath = FPaths::Combine(NewTargetSubDir,CleanFilename);
+				CopyFileTo(FilePath,NewFilePath);
+			}
+		}
+	}
+	return SubDirsSubfix;
 }
 
 void UCommonFunLib::CopyFileTo(FString SourceFile, FString TargetFile)
@@ -33,14 +58,11 @@ void UCommonFunLib::CopyFileTo(FString SourceFile, FString TargetFile)
 	if(Ok)
 	{
 		UE_LOG(LogTemp,Log,TEXT("Copy %s to %s"),*SourceFile,*TargetFile);
-		FString Msg = "Copy " + SourceFile + " to " + TargetFile;
 	}
 	else
 	{
 		UE_LOG(LogTemp,Error,TEXT("Failed to copy %s to %s"),*SourceFile,*TargetFile);
-		FString Msg = "Failed to copy " + SourceFile + " to " + TargetFile;
 	}
-	
 }
 
 void UCommonFunLib::CleanFolder(FString Dir)
@@ -102,8 +124,26 @@ TArray<FContent> UCommonFunLib::GetContentFromDir(FString Dir)
 			Content.Key = Key;
 			TArray<FString> Files;
 			IFileManager::Get().FindFiles(Files,*SubDir);
-			Content.Content = Files;
-			Contents.Add(Content);
+			if(Files.Num() > 0)
+			{
+				Content.Content = Files;
+				Content.Type = TEXT("File");
+				Contents.Add(Content);
+			}
+			else if(Files.Num() == 0)
+			{
+				TArray<FString> SubSubDirs = GetAllSubdirectories(SubDir);
+				TArray<FString> SubSubDirNames;
+				for (FString SubSubDir : SubSubDirs)
+				{
+					TArray<FString> Split;
+					SubSubDir.ParseIntoArray(Split,TEXT("/"));
+					SubSubDirNames.Add(Split.Last());
+				}
+				Content.Content = SubSubDirNames;
+				Content.Type = TEXT("Folder");
+				Contents.Add(Content);
+			}
 		}
 	}
 	return Contents;
@@ -113,27 +153,22 @@ TArray<FString> UCommonFunLib::GetAllSubdirectories(const FString& Dir)
 {
 	TArray<FString> Dirs;
 	long long hFile = 0;
-	struct _finddata_t FileInfo;
-	std::string p;
-	std::string Path = TCHAR_TO_UTF8(*Dir);
-	if ((hFile = _findfirst(p.assign(Path).append("\\*").c_str(), &FileInfo)) != -1)
+	_wfinddata_t FileInfo;
+	std::wstring_convert<std::codecvt_utf8<wchar_t>> Conv;
+	std::wstring RootPath = Conv.from_bytes(TCHAR_TO_UTF8(*Dir));
+	std::wstring WPath = RootPath + L"\\*";
+	if ((hFile = _wfindfirst(WPath.c_str(), &FileInfo)) != -1)
 	{
 		do
 		{
-			if(FileInfo.attrib & _A_SUBDIR)
+			if(FileInfo.attrib & _A_SUBDIR && wcscmp(FileInfo.name,L".") != 0 && wcscmp(FileInfo.name,L"..") != 0)
 			{
-				const char* DirNameChr = p.assign(Path).append("/").append(FileInfo.name).c_str();
-				int Size = MultiByteToWideChar(CP_OEMCP,0,DirNameChr,strlen(DirNameChr)+1,NULL,0);
-				wchar_t* DirNameWChr = new wchar_t[Size];
-				MultiByteToWideChar(CP_OEMCP,0,DirNameChr,strlen(DirNameChr)+1,DirNameWChr,Size);
-				FString Item = DirNameWChr;
-				if(!Item.Contains(TEXT(".")))
-				{
-					Dirs.Add(Item);
-				}
+				std::wstring SubPath = RootPath + L"/" + FileInfo.name;
+				const wchar_t* DirNameChr = SubPath.c_str();
+				Dirs.Add(FString(DirNameChr));
 			}
 		}
-		while(_findnext(hFile,&FileInfo) == 0);
+		while(_wfindnext(hFile,&FileInfo) == 0);
 		_findclose(hFile);
 	}
 	return Dirs;

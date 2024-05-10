@@ -46,23 +46,33 @@ def DeleteRedundancyDir(RootDir):
             if os.path.isdir(FilePath):
                 shutil.rmtree(FilePath)
 
+def DeletePPTDir(PPTs):
+    for PPTPath in PPTs:
+        Dir = os.path.dirname(PPTPath)
+        Files = os.listdir(Dir)
+        for File in Files:
+            FilePath = os.path.join(Dir,File)
+            if os.path.isdir(FilePath):
+                shutil.rmtree(FilePath)
+
+
 def PPT2PNG(PPTs):
     PPTObj = ppt2gif.PPT(PPTs)
     PPTObj.convert2png()
 
-JsonPath = os.path.split(os.path.realpath(__file__))[0] + "\Config\Config.json"
-print(JsonPath)
-with open(JsonPath,'r') as File:
-    Config = json.load(File)
-    print('Loaded config file : '+JsonPath)
+# JsonPath = os.path.split(os.path.realpath(__file__))[0] + "\Config\Config.json"
+# print(JsonPath)
+# with open(JsonPath,'r') as File:
+#     Config = json.load(File)
+#     print('Loaded config file : '+JsonPath)
 
 PPTDir = os.path.split(os.path.realpath(__file__))[0] + "\DiyContents"
-PPTDirConfig = Config['Display']['PPTDir']
-if PPTDirConfig != "":
-    PPTDir = PPTDirConfig
+# PPTDirConfig = Config['Display']['PPTDir']
+# if PPTDirConfig != "":
+#     PPTDir = PPTDirConfig
 
 PPTs = []
-DeleteRedundancyDir(PPTDir)
 GetPPTsFromDir(PPTDir,PPTs)
+DeletePPTDir(PPTs)
 PPT2PNG(PPTs)
 

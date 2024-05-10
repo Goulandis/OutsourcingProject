@@ -13,6 +13,8 @@ struct FContent
 	UPROPERTY(BlueprintReadWrite)
 	FString Key;
 	UPROPERTY(BlueprintReadWrite)
+	FString Type;
+	UPROPERTY(BlueprintReadWrite)
 	TArray<FString> Content;
 };
 
@@ -22,6 +24,8 @@ class PPT2PNGUI_API UCommonFunLib : public UBlueprintFunctionLibrary
 	GENERATED_BODY()
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static void CopyFilesTo(TArray<FString> Files,FString Dir);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static TArray<FString> CopyFoldersTo(FString RootDir,FString TargetDir);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static void CopyFileTo(FString File,FString Dir);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
@@ -35,4 +39,5 @@ class PPT2PNGUI_API UCommonFunLib : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static TArray<FContent> GetContentFromDir(FString Dir);
 	static TArray<FString> GetAllSubdirectories(const FString& Dir);
+	
 };
