@@ -70,6 +70,39 @@ void UCommonFunLib::LoadPNG2Texture(TArray<UTexture2D*>& Texs, FString Dir)
 	}
 }
 
+UTexture2D* UCommonFunLib::LoadPNG2TextureFromFile(const FString& FilePath)
+{
+	UTexture2D* Tex = nullptr;
+	if(!IFileManager::Get().FileExists(*FilePath))
+	{
+		UE_LOG(LOGPPT2PNG,Error,TEXT("%s is not exists"),*FilePath);
+		return Tex;
+	}
+	TArray<uint8> RawFileData;
+	if(!FFileHelper::LoadFileToArray(RawFileData,*FilePath))
+	{
+		UE_LOG(LOGPPT2PNG,Error,TEXT("Failed to load file to memory : %s"),*FilePath);
+		return Tex;
+	}
+	TSharedPtr<IImageWrapper> ImageWrapper = GetImageWrapperByExtention(FilePath);
+	if(ImageWrapper.IsValid() && ImageWrapper->SetCompressed(RawFileData.GetData(),RawFileData.Num()))
+	{
+		TArray<uint8> UncompressedRGBBA;
+		if(ImageWrapper->GetRaw(ERGBFormat::RGBA,8,UncompressedRGBBA))
+		{
+			Tex = UTexture2D::CreateTransient(ImageWrapper->GetWidth(),ImageWrapper->GetHeight(),PF_R8G8B8A8);
+			if(Tex)
+			{
+				void* TexData = Tex->PlatformData->Mips[0].BulkData.Lock(LOCK_READ_WRITE);
+				FMemory::Memcpy(TexData,UncompressedRGBBA.GetData(),UncompressedRGBBA.Num());
+				Tex->PlatformData->Mips[0].BulkData.Unlock();
+				Tex->UpdateResource();
+			}
+		}
+	}
+	return Tex;
+}
+
 TSharedPtr<IImageWrapper> UCommonFunLib::GetImageWrapperByExtention(const FString& ImagePath)
 {
 	IImageWrapperModule& Module = FModuleManager::LoadModuleChecked<IImageWrapperModule>(FName("ImageWrapper"));
@@ -181,9 +214,6 @@ TArray<FString> UCommonFunLib::GetAllSubdirectories(const FString& Dir)
 			{
 				std::wstring SubPath = RootPath + L"/" + FileInfo.name;
 				const wchar_t* DirNameChr = SubPath.c_str();
-				//int Size = MultiByteToWideChar(CP_OEMCP,0,DirNameChr,strlen(DirNameChr)+1,NULL,0);
-				//wchar_t* DirNameWChr = new wchar_t[Size];
-				//MultiByteToWideChar(CP_OEMCP,0,DirNameChr,strlen(DirNameChr)+1,DirNameWChr,Size);
 				Dirs.Add(FString(DirNameChr));
 			}
 		}
@@ -278,6 +308,28 @@ void UCommonFunLib::ChineseSrot(TArray<FString>& Results, TArray<FString> StrArr
 	Results.Add(StrArr[Index]);
 	StrArr.RemoveAt(Index);
 	ChineseSrot(Results,StrArr);
+}
+
+TMap<FString,FString> UCommonFunLib::GetAllFilesFromDir(const FString& Dir)
+{
+	TArray<FString> FileNames;
+	IFileManager::Get().FindFiles(FileNames,*Dir);
+	TMap<FString,FString> FilePathAndTypeMap;
+	for(FString FileName : FileNames)
+	{
+		FString FilePath = FPaths::Combine(Dir,FileName);
+		FString FileType = TEXT("None");
+		if(FilePath.EndsWith(".png") || FilePath.EndsWith(".jpg") || FilePath.EndsWith(".jpeg"))
+		{
+			FileType = TEXT("Image");
+		}
+		else if(FilePath.EndsWith(".mp4"))
+		{
+			FileType = TEXT("Video");
+		}
+		FilePathAndTypeMap.Add(TPair<FString,FString>(FilePath,FileType));
+	}
+	return FilePathAndTypeMap;
 }
 
 

@@ -27,6 +27,8 @@ class ZJCHINAMOBILE_API UCommonFunLib : public UBlueprintFunctionLibrary
 	static void InitPPT2PNGScript();
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static void LoadPNG2Texture(TArray<UTexture2D*>& Texs,FString Dir);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static UTexture2D* LoadPNG2TextureFromFile(const FString& FilePath);
 	static TSharedPtr<IImageWrapper> GetImageWrapperByExtention(const FString& ImagePath);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static TMap<FString,FString> GetDirType(const TArray<FString>& Dirs);
@@ -45,4 +47,7 @@ class ZJCHINAMOBILE_API UCommonFunLib : public UBlueprintFunctionLibrary
 	static bool ChineseCompare(FString Source,FString Target);
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static void ChineseSrot(TArray<FString>& Results,TArray<FString> StrArr);
+
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static TMap<FString,FString> GetAllFilesFromDir(const FString& Dir);
 };
