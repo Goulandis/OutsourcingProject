@@ -322,12 +322,46 @@ TMap<FString,FString> UCommonFunLib::GetAllFilesFromDir(const FString& Dir)
 		if(FilePath.EndsWith(".png") || FilePath.EndsWith(".jpg") || FilePath.EndsWith(".jpeg"))
 		{
 			FileType = TEXT("Image");
+			FilePathAndTypeMap.Add(TPair<FString,FString>(FilePath,FileType));
 		}
 		else if(FilePath.EndsWith(".mp4"))
 		{
 			FileType = TEXT("Video");
+			FilePathAndTypeMap.Add(TPair<FString,FString>(FilePath,FileType));
 		}
-		FilePathAndTypeMap.Add(TPair<FString,FString>(FilePath,FileType));
+	}
+	if(!FilePathAndTypeMap.IsEmpty())
+	{
+		return FilePathAndTypeMap;
+	}
+	else
+	{
+		if(FileNames.Num() > 0)
+		{
+			FString FilePath = FPaths::Combine(Dir,FileNames[0]);
+			if(FilePath.EndsWith(".pptx"))
+			{
+				FString SubDir = FPaths::Combine(Dir,FPaths::GetBaseFilename(FilePath));
+				TArray<FString> SubFiles;
+				IFileManager::Get().FindFiles(SubFiles,*SubDir);
+				for(FString SubFile : SubFiles)
+				{
+					FString SubFilePath = FPaths::Combine(SubDir,SubFile);
+					FString FileType = TEXT("None");
+					if(SubFilePath.EndsWith(".png") || SubFilePath.EndsWith(".jpg") || SubFilePath.EndsWith(".jpeg"))
+					{
+						FileType = TEXT("Image");
+						FilePathAndTypeMap.Add(TPair<FString,FString>(SubFilePath,FileType));
+					}
+					else if(SubFilePath.EndsWith(".mp4"))
+					{
+						FileType = TEXT("Video");
+						FilePathAndTypeMap.Add(TPair<FString,FString>(SubFilePath,FileType));
+					}
+				}
+				return FilePathAndTypeMap;
+			}
+		}
 	}
 	return FilePathAndTypeMap;
 }
