@@ -21,3 +21,15 @@ ZJChinaMobile/Content/JiangJieYuan/Ani/能力区/dashuju.uasset
 ZJChinaMobile/Content/JiangJieYuan/Ani/能力区/qukuailian.uasset
 ZJChinaMobile/Content/JiangJieYuan/Ani/能力区/rengongzhineng.uasset
 ZJChinaMobile/Content/JiangJieYuan/Ani/能力区/suanliwangluo.uasset
+ZJChinaMobile/Content/JiangJieYuan/Ani/行业区/hangye01fazhi.uasset
+ZJChinaMobile/Content/JiangJieYuan/Ani/行业区/hangye02jiangjieci.uasset
+ZJChinaMobile/Content/JiangJieYuan/Ani/行业区/hangye03jiaotong.uasset
+ZJChinaMobile/Content/JiangJieYuan/Ani/行业区/hangye04zhihuigongye.uasset
+ZJChinaMobile/Content/JiangJieYuan/Ani/创新区/chuangxin02yunzhongxin.uasset
+ZJChinaMobile/Content/JiangJieYuan/Ani/创新区/chuangxinqu01zhineng.uasset
+ZJChinaMobile/Content/JiangJieYuan/Ani/创新区/chuangxinqu03dashuju.uasset
+ZJChinaMobile/Content/JiangJieYuan/Ani/创新区/chuangxinqu145GA.uasset
+ZJChinaMobile/Content/JiangJieYuan/Ani/剩余分区/jiatingqujiangjie.uasset
+ZJChinaMobile/Content/JiangJieYuan/Ani/剩余分区/jixiebi.uasset
+ZJChinaMobile/Content/JiangJieYuan/Ani/剩余分区/shenghuoqujiangjie.uasset
+ZJChinaMobile/Content/JiangJieYuan/Ani/剩余分区/shuzhiwenlv.uasset
