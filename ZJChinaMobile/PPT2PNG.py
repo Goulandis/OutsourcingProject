@@ -6,20 +6,25 @@ try:
     print("Module:ppt2gif installed")
 except ImportError:
     print("Module:ppt2gif uninstalled so try to install")
-    subprocess.call(['python','-m','pip','install','-i','https://pypi.tuna.tsinghua.edu.cn/simple','ppt2gif==1.0.2'])
+    subprocess.call(['python','-m','pip','install','ppt2gif==1.0.2'])
 try:
-    import pathlib2
+    import ppt2gif
     print("Module:pathlib2 installed")
 except ImportError:
-    print("Module:pathlib2 uninstalled so try to install")
-    subprocess.call(['python','-m','pip','install','-i','https://pypi.tuna.tsinghua.edu.cn/simple','pathlib2==2.3.7.post1'])
+    print("Module:ppt2gif uninstalled so try to install")
+    subprocess.call(['python','-m','pip','install','pathlib2'])
 try:
     import shutil
     print("Module:shutil installed")
 except ImportError:
     print("Module:shutil uninstalled so try to install")
-    subprocess.call(['python','-m','pip','install','-i','https://pypi.tuna.tsinghua.edu.cn/simple','shutil'])
-
+    subprocess.call(['python','-m','pip','install','shutil'])
+try:
+    import pypiwin32
+    print("Module:pypiwin32 installed")
+except ImportError:
+    print("Module:pypiwin32 uninstalled so try to install")
+    subprocess.call(['python','-m','pip','install','pypiwin32'])
 import ppt2gif
 import shutil
 
@@ -41,38 +46,36 @@ def DeleteRedundancyDir(RootDir):
             Dirs.append(FilePath)
     for Dir in Dirs:
         Files = os.listdir(Dir)
+        HasPPTX = False
         for File in Files:
             FilePath = os.path.join(Dir,File)
-            if os.path.isdir(FilePath):
-                shutil.rmtree(FilePath)
-
-def DeletePPTDir(PPTs):
-    for PPTPath in PPTs:
-        Dir = os.path.dirname(PPTPath)
-        Files = os.listdir(Dir)
-        for File in Files:
-            FilePath = os.path.join(Dir,File)
-            if os.path.isdir(FilePath):
-                shutil.rmtree(FilePath)
+            if FilePath.endswith(".pptx"):
+                HasPPTX = True
+                break
+        if HasPPTX :
+            for File in Files:
+                FilePath = os.path.join(Dir,File)
+                if os.path.isdir(FilePath):
+                    shutil.rmtree(FilePath)
 
 
 def PPT2PNG(PPTs):
     PPTObj = ppt2gif.PPT(PPTs)
     PPTObj.convert2png()
 
-# JsonPath = os.path.split(os.path.realpath(__file__))[0] + "\Config\Config.json"
-# print(JsonPath)
-# with open(JsonPath,'r') as File:
-#     Config = json.load(File)
-#     print('Loaded config file : '+JsonPath)
+JsonPath = os.path.split(os.path.realpath(__file__))[0] + "\Config\Config.json"
+print(JsonPath)
+with open(JsonPath,'r') as File:
+    Config = json.load(File)
+    print('Loaded config file : '+JsonPath)
 
 PPTDir = os.path.split(os.path.realpath(__file__))[0] + "\DiyContents"
-# PPTDirConfig = Config['Display']['PPTDir']
-# if PPTDirConfig != "":
-#     PPTDir = PPTDirConfig
+PPTDirConfig = Config['Display']['PPTDir']
+if PPTDirConfig != "":
+    PPTDir = PPTDirConfig
 
 PPTs = []
+DeleteRedundancyDir(PPTDir)
 GetPPTsFromDir(PPTDir,PPTs)
-DeletePPTDir(PPTs)
 PPT2PNG(PPTs)
 
