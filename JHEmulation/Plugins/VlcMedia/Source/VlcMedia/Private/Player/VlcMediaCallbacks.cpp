@@ -410,7 +410,10 @@ unsigned FVlcMediaCallbacks::StaticVideoSetupCallback(void** Opaque, char* Chrom
 	{
 		// reconfigure output for natively supported format
 		FLibvlcChromaDescription* ChromaDescr = FVlc::FourccGetChromaDescription(*(FLibvlcFourcc*)Chroma);
-
+		if(ChromaDescr == nullptr)
+		{
+			return 0;
+		}
 		if (ChromaDescr->PlaneCount == 0)
 		{
 			return 0;
