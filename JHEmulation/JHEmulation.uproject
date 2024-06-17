@@ -42,6 +42,11 @@
 		{
 			"Name": "DTNativeClient",
 			"Enabled": false
+		},
+		{
+			"Name": "WebCameraPlugin",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/3ddb95273699400286e446c5515e9208"
 		}
 	]
 }

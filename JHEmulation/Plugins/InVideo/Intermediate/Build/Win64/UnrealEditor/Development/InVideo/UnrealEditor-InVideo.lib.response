@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-InVideo.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"E:\Goulandis\OutsourcingProject\JHEmulation\Intermediate\Build\Win64\JHEmulationEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"E:\Goulandis\OutsourcingProject\JHEmulation\Plugins\InVideo\Intermediate\Build\Win64\UnrealEditor\Development\InVideo\Module.InVideo.cpp.obj"
+"E:\Goulandis\OutsourcingProject\JHEmulation\Plugins\InVideo\Intermediate\Build\Win64\UnrealEditor\Development\InVideo\Default.rc2.res"
+/OUT:"E:\Goulandis\OutsourcingProject\JHEmulation\Plugins\InVideo\Intermediate\Build\Win64\UnrealEditor\Development\InVideo\UnrealEditor-InVideo.lib"

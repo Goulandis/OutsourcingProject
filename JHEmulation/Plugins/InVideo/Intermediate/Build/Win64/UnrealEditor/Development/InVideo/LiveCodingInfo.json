@@ -1,0 +1,15 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.InVideo.cpp.obj": [
+			"InRecordGameViewportClient.gen.cpp.obj",
+			"InSceneRecord.gen.cpp.obj",
+			"InVideo.init.gen.cpp.obj",
+			"InVideoWidget.gen.cpp.obj",
+			"InRecordGameViewportClient.cpp.obj",
+			"InSceneRecord.cpp.obj",
+			"InVideo.cpp.obj",
+			"InVideoWidget.cpp.obj"
+		]
+	}
+}
