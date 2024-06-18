@@ -1,6 +1,7 @@
 {
 	"Display":
 	{
-		"PPTDir":""
+		"PPTDir":"",
+		"PlayMode":1
 	}
 }
