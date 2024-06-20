@@ -3,5 +3,9 @@
 	{
 		"PPTDir":"",
 		"PlayMode":1
+	},
+	"Narrator":
+	{
+		"SpeekDelayTime":1
 	}
 }
