@@ -35,7 +35,7 @@
 		},
 		"PlayMode":1,
 		"MediaEventMode1ReflashTime":10.0,
-		"DualResolutionMode":false,
+		"DualResolutionMode":true,
 		"AllowPlayMedia":true,
 		"ReopenMediaTimeInterval":600
 	},
