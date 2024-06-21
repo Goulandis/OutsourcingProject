@@ -7,5 +7,9 @@
 	"Narrator":
 	{
 		"SpeekDelayTime":1
+	},
+	"Debug":
+	{
+		"DisableAllScreenMessages":true
 	}
 }
