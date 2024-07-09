@@ -366,5 +366,10 @@ TMap<FString,FString> UCommonFunLib::GetAllFilesFromDir(const FString& Dir)
 	return FilePathAndTypeMap;
 }
 
+FDateTime UCommonFunLib::UnixTimestamp32ToDatatime(int32 UnixTimestamp)
+{
+	return FDateTime::FromUnixTimestamp(UnixTimestamp);
+}
+
 
 

@@ -50,4 +50,7 @@ class ZJCHINAMOBILE_API UCommonFunLib : public UBlueprintFunctionLibrary
 
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
 	static TMap<FString,FString> GetAllFilesFromDir(const FString& Dir);
+	
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static FDateTime UnixTimestamp32ToDatatime(int32 UnixTimestamp);
 };
