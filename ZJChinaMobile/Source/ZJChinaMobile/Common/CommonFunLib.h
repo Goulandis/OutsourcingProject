@@ -52,5 +52,17 @@ class ZJCHINAMOBILE_API UCommonFunLib : public UBlueprintFunctionLibrary
 	static TMap<FString,FString> GetAllFilesFromDir(const FString& Dir);
 	
 	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
-	static FDateTime UnixTimestamp32ToDatatime(int32 UnixTimestamp);
+	static FDateTime UnixTimestamp64ToDatatime(int64 UnixTimestamp);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static FTimespan TimeInterval(FDateTime NowTime,FDateTime LastTime);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static FString LoadFileToFString(const FString& Path);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static bool SaveFStringToFile(const FString& Path,const FString& Content);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static FString Encrypt(FString Input,FString Key);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static FString Decrypt(FString Input,FString Key);
+	UFUNCTION(BlueprintCallable,Category="CommonFunLib")
+	static bool NetState();
 };

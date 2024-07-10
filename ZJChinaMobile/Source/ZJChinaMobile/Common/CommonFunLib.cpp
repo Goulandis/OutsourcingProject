@@ -8,6 +8,7 @@
 #include <windows.h>
 #include "Windows/HideWindowsPlatformTypes.h"
 #include <codecvt>
+#include <WinInet.h>
 
 DEFINE_LOG_CATEGORY(LOGPPT2PNG);
 
@@ -366,10 +367,108 @@ TMap<FString,FString> UCommonFunLib::GetAllFilesFromDir(const FString& Dir)
 	return FilePathAndTypeMap;
 }
 
-FDateTime UCommonFunLib::UnixTimestamp32ToDatatime(int32 UnixTimestamp)
+FDateTime UCommonFunLib::UnixTimestamp64ToDatatime(int64 UnixTimestamp)
 {
-	return FDateTime::FromUnixTimestamp(UnixTimestamp);
+	int64 Timestamp = FDateTime::Now().ToUnixTimestamp();
+	UE_LOG(LogTemp,Log,TEXT("timestamp:%lld"),Timestamp);
+	return FDateTime(1970,1,1)+FTimespan(0,0,UnixTimestamp)+FTimespan(8,0,0);
 }
+
+FTimespan UCommonFunLib::TimeInterval(FDateTime NowTime, FDateTime LastTime)
+{
+	return NowTime - LastTime;
+}
+
+FString UCommonFunLib::LoadFileToFString(const FString& Path)
+{
+	FString Content;
+	FFileHelper::LoadFileToString(Content,*Path);
+	return Content;
+}
+
+bool UCommonFunLib::SaveFStringToFile(const FString& Path,const FString& Content)
+{
+	return FFileHelper::SaveStringToFile(Content,*Path);
+}
+
+FString UCommonFunLib::Encrypt(FString Input, FString Key)
+{
+	if(Input.IsEmpty() || Key.IsEmpty())
+	{
+		return "";
+	}
+	FString SignStartStr = "=-StartCheck-=";
+	FString SignEndStr = "=-EndCheck-=";
+	Input = SignStartStr + Input;
+	Input.Append(SignEndStr);
+
+	TArray<uint8> Content;
+	std::string _s(TCHAR_TO_UTF8(*Input));
+	Content.Append((unsigned char*)_s.data(),_s.size());
+	Input = FBase64::Encode(Content);
+
+	FString SpliteSymbol = "SomethingSpecialSignal";
+	Input.Append(SpliteSymbol);
+	Key = FMD5::HashAnsiString(*Key);
+	TCHAR* KeyTChar = Key.GetCharArray().GetData();
+	ANSICHAR* KeyAnsi = (ANSICHAR*)TCHAR_TO_ANSI(KeyTChar);
+	
+	uint32 Size = Input.Len();
+	Size = Size + (FAES::AESBlockSize - Size % FAES::AESBlockSize);
+	uint8* Blob = new uint8[Size];
+	if(StringToBytes(Input,Blob,Size))
+	{
+		FAES::EncryptData(Blob,Size,KeyAnsi);
+		Input = FString::FromHexBlob(Blob,Size);
+		delete Blob;
+		return Input;
+	}
+	delete Blob;
+	return "";
+}
+
+FString UCommonFunLib::Decrypt(FString Input, FString Key)
+{
+	if(Input.IsEmpty() || Key.IsEmpty())
+	{
+		return "";
+	}
+	FString SpliteSymbol = "SomethingSpecialSignal";
+	Key = FMD5::HashAnsiString(*Key);
+	TCHAR* KetTChar = Key.GetCharArray().GetData();
+	ANSICHAR* KeyAnsi = (ANSICHAR*)TCHAR_TO_ANSI(KetTChar);
+	uint32 Size = Input.Len();
+	Size = Size + (FAES::AESBlockSize - Size % FAES::AESBlockSize);
+	uint8* Blob = new uint8[Size];
+	if(FString::ToHexBlob(Input,Blob,Size))
+	{
+		FAES::DecryptData(Blob,Size,KeyAnsi);
+		Input = BytesToString(Blob,Size);
+		FString LeftData,RightData;
+		Input.Split(SpliteSymbol,&LeftData,&RightData,ESearchCase::CaseSensitive,ESearchDir::FromStart);
+		Input = LeftData;
+		TArray<uint8> Content;
+		FBase64::Decode(Input,Content);
+		Input = FString(UTF8_TO_TCHAR(Content.GetData()));
+		FString SignStartStr = "=-StartCheck-=";
+		FString SignEndStr = "=-EndCheck-=";
+		Input.Split(SignStartStr,&LeftData,&RightData,ESearchCase::CaseSensitive, ESearchDir::FromStart);
+		Input = RightData;
+		Input.Split(SignEndStr,&LeftData,&RightData,ESearchCase::CaseSensitive, ESearchDir::FromStart);
+		Input = LeftData;
+		delete Blob;
+		return Input;
+	}
+	delete Blob;
+	return "";
+}
+
+bool UCommonFunLib::NetState()
+{
+	return InternetGetConnectedState(NULL,0);
+}
+
+
 
 
 
