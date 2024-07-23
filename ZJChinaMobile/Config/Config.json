@@ -10,6 +10,6 @@
 	},
 	"Debug":
 	{
-		"DisableAllScreenMessages":true
+		"DisableAllScreenMessages":false
 	}
 }
